@@ -143,3 +143,32 @@ document.addEventListener("DOMContentLoaded", () => {
         typeEffect();
     }
 });
+
+// --- FITUR BACKGROUND MUSIC (BGM) PLAYER ---
+document.addEventListener("DOMContentLoaded", function () {
+    const music = document.getElementById("bg-music");
+    const musicBtn = document.getElementById("music-toggle");
+    const musicIcon = musicBtn ? musicBtn.querySelector("i") : null;
+
+    if (music && musicBtn) {
+        // Mengatur volume awal agar tidak terlalu keras (skala 0.0 sampai 1.0)
+        music.volume = 0.4; 
+
+        musicBtn.addEventListener("click", function () {
+            if (music.paused) {
+                // Jika lagu sedang berhenti, maka mainkan
+                music.play().then(() => {
+                    if (musicIcon) musicIcon.className = "fa-solid fa-pause"; // Ubah ikon jadi pause
+                    musicBtn.classList.add("playing");
+                }).catch(error => {
+                    console.log("Musik gagal diputar otomatis oleh browser:", error);
+                });
+            } else {
+                // Jika lagu sedang berputar, maka hentikan (pause)
+                music.pause();
+                if (musicIcon) musicIcon.className = "fa-solid fa-play"; // Ubah ikon balik jadi play
+                musicBtn.classList.remove("playing");
+            }
+        });
+    }
+});
