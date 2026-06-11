@@ -540,3 +540,42 @@ nav.scrolled {
     color: inherit !important; /* Memaksa warna teks ikut warna asli kartu */
     display: block;
 }
+
+/* --- BUTTON MUSIC PLAYER FLOATING --- */
+.music-btn {
+    position: fixed;
+    bottom: 25px;
+    left: 25px; /* Menempatkan tombol melayang di pojok kiri bawah layar */
+    background: var(--bg-card);
+    color: var(--text-color);
+    border: 1px solid var(--border-color);
+    padding: 10px 18px;
+    border-radius: 30px;
+    cursor: pointer;
+    font-family: 'Inter', sans-serif;
+    font-size: 0.85rem;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    z-index: 9999; /* Memastikan tombol tidak tertutup elemen lain */
+    backdrop-filter: blur(10px);
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+}
+
+.music-btn:hover {
+    background: var(--bg-card-hover);
+    transform: translateY(-3px);
+    border-color: #aae2ff; /* Efek kilau neon tipis saat didekati mouse */
+}
+
+/* Animasi ikon berdenyut lembut saat lagu sedang berputar */
+.music-btn.playing i {
+    animation: musicPulse 1.2s infinite alternate;
+}
+
+@keyframes musicPulse {
+    0% { transform: scale(1); }
+    100% { transform: scale(1.2); color: #aae2ff; }
+}
