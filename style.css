@@ -491,58 +491,45 @@ nav.scrolled {
     50% { opacity: 0; }
 }
 
-/* --- DEKORASI VISUAL GAMBAR PROJECT (FIXED) --- */
+/* --- DEKORASI GAMBAR PROJECT CARD (VERSI UTUH/CONTAIN) --- */
 
-/* Menghilangkan padding atas khusus pada kartu agar gambar menempel ke tepi atas */
+/* Menghilangkan padding atas bawaan khusus pada kartu agar gambar menempel rapat */
 .project-card {
     padding: 0 0 30px 0 !important;
+    display: flex;
+    flex-direction: column;
 }
 
-/* Mengatur ulang jarak teks di dalam kartu */
+/* Mengatur ulang jarak teks judul dan deskripsi di dalam kartu */
 .project-card h3 {
-    margin: 25px 30px 10px 30px;
+    margin: 20px 25px 10px 25px !important;
 }
 
 .project-card p {
-    margin: 0 30px;
-    line-height: 1.6;
+    margin: 0 25px !important;
+    line-height: 1.5 !important;
+    font-size: 0.9rem;
 }
 
 /* Kotak pembungkus gambar */
 .image-container {
     width: 100% !important;
-    height: 240px !important; /* <--- Ketinggian dinaikkan dari 170px ke 240px agar gambar lebih full */
-    overflow: hidden !important; 
-    border-radius: 20px 20px 0 0 !important; 
+    height: 170px !important; /* Tinggi kotak terkunci aman */
+    overflow: hidden !important; /* Sembunyikan luapan */
+    border-radius: 20px 20px 0 0 !important; /* Lengkungan sudut atas kartu */
     border-bottom: 1px solid var(--border-color) !important;
-    background: rgba(0, 0, 0, 0.2) !important;
+    background: rgba(0, 0, 0, 0.2) !important; /* Warna dasar latar belakang gambar */
 }
 
+/* Mengunci ukuran gambar di dalam kotak (VERSI UTUH TANPA DICROP) */
 .image-container img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover; 
-    transition: transform 0.5s cubic-bezier(0.25, 1, 0.5, 1); 
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: contain !important; /* <--- Di sini letaknya! Gambar masuk full 100% tanpa terpotong */
+    transition: transform 0.5s cubic-bezier(0.25, 1, 0.5, 1) !important; /* Efek halus zoom */
 }
 
-/* ======================================================== */
-/* PERBAIKAN KHUSUS CARD 2: Membagi gambar berdampingan tanpa meluber */
-/* ======================================================== */
-.image-container.split-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr; /* Membagi rata kiri dan kanan */
-    gap: 4px; /* Kasih jarak pemisah vertikal tipis antar gambar */
-    height: 180px; /* Mengunci tinggi kontainer grid */
-}
-
-/* Pastikan gambar di dalam split-grid terkunci tingginya */
-.image-container.split-grid img {
-    width: 100%;
-    height: 180px; /* Mengunci tinggi gambar agar pas 180px */
-    object-fit: cover; /* Memotong gambar secara proporsional agar tidak penyet/gepeng */
-}
-
-/* Efek Zoom saat Kartu Disentuh Kursor */
+/* Efek Gambar Membesar saat Kartu Di-hover Mouse */
 .project-card:hover .image-container img {
-    transform: scale(1.06); 
+    transform: scale(1.06) !important; /* Gambar nge-zoom 6% */
 }
