@@ -144,7 +144,7 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 });
 
-// --- FITUR BACKGROUND MUSIC (BGM) PLAYER ---
+// --- FITUR BACKGROUND MUSIC (BGM) PLAYER WITH CUSTOM START TIME ---
 document.addEventListener("DOMContentLoaded", function () {
     const music = document.getElementById("bg-music");
     const musicBtn = document.getElementById("music-toggle");
@@ -156,9 +156,14 @@ document.addEventListener("DOMContentLoaded", function () {
 
         musicBtn.addEventListener("click", function () {
             if (music.paused) {
-                // Jika lagu sedang berhenti, maka mainkan
+                // KUNCI DETIK: Langsung lompat ke detik 70 (menit 1:10) saat pertama kali diputar
+                if (music.currentTime === 0) {
+                    music.currentTime = 70; 
+                }
+
+                // Mainkan lagu
                 music.play().then(() => {
-                    if (musicIcon) musicIcon.className = "fa-solid fa-pause"; // Ubah ikon jadi pause
+                    if (musicIcon) musicIcon.className = "fa-solid fa-pause";
                     musicBtn.classList.add("playing");
                 }).catch(error => {
                     console.log("Musik gagal diputar otomatis oleh browser:", error);
