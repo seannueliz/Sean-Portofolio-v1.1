@@ -533,3 +533,10 @@ nav.scrolled {
 .project-card:hover .image-container img {
     transform: scale(1.06) !important; /* Gambar nge-zoom 6% */
 }
+
+/* Menjaga agar link pembungkus kartu tidak merusak warna teks */
+.project-card-link {
+    text-decoration: none !important; /* Menghilangkan garis bawah link */
+    color: inherit !important; /* Memaksa warna teks ikut warna asli kartu */
+    display: block;
+}
