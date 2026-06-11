@@ -227,7 +227,7 @@ h2 {
     gap: 25px;
 }
 
-/* CONTACT SECTION - (SINTAKS FIX DI SINI) */
+/* CONTACT SECTION */
 .contact-box {
     background: var(--bg-card);
     border: 1px solid var(--border-color);
@@ -547,22 +547,22 @@ nav.scrolled {
     position: relative; /* Kunci posisi kotak tooltip agar mengacu pada kartu */
 }
 
-/* Membuat Kotak Tooltip Semu */
+/* Membuat Kotak Tooltip Semu Versi Lebar Pas Teks Panjang */
 .skill-card::before {
     content: attr(data-tooltip); /* Mengambil teks otomatis dari HTML */
     position: absolute;
     bottom: 115%; /* Muncul tepat di atas kartu */
     left: 50%;
     transform: translateX(-50%) translateY(10px);
-    background: rgba(10, 10, 14, 0.9);
+    background: rgba(10, 10, 14, 0.95);
     color: #ffffff;
-    font-size: 0.78rem;
+    font-size: 0.75rem;
     font-weight: 500;
     line-height: 1.4;
-    padding: 10px 14px;
+    padding: 12px 16px;
     border-radius: 10px;
-    width: 230px;
-    text-align: center;
+    width: 290px;
+    text-align: left;
     border: 1px solid rgba(0, 175, 255, 0.2);
     box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
     backdrop-filter: blur(8px);
