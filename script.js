@@ -144,34 +144,62 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 });
 
-// --- FITUR BACKGROUND MUSIC (BGM) PLAYER WITH CUSTOM START TIME ---
+// --- FITUR BACKGROUND MUSIC (BGM) AUTOPLAY MUTED STRATEGY ---
 document.addEventListener("DOMContentLoaded", function () {
     const music = document.getElementById("bg-music");
     const musicBtn = document.getElementById("music-toggle");
     const musicIcon = musicBtn ? musicBtn.querySelector("i") : null;
 
     if (music && musicBtn) {
-        // Mengatur volume awal agar tidak terlalu keras (skala 0.0 sampai 1.0)
-        music.volume = 0.4; 
+        // Atur volume standar (0.0 - 1.0)
+        const targetVolume = 0.4; 
+        music.volume = targetVolume;
 
-        musicBtn.addEventListener("click", function () {
-            if (music.paused) {
-                // KUNCI DETIK: Langsung lompat ke detik 70 (menit 1:10) saat pertama kali diputar
-                if (music.currentTime === 0) {
-                    music.currentTime = 70; 
-                }
+        // LANGSUNG PAKSA LOMPAT KE MENIT 1:10 (Detik 70) saat web baru terbuka
+        music.currentTime = 70;
 
-                // Mainkan lagu
-                music.play().then(() => {
-                    if (musicIcon) musicIcon.className = "fa-solid fa-pause";
-                    musicBtn.classList.add("playing");
-                }).catch(error => {
-                    console.log("Musik gagal diputar otomatis oleh browser:", error);
-                });
+        // Coba paksa putar langsung (kondisi muted aktif di HTML)
+        music.play().then(() => {
+            console.log("Autoplay muted sukses berjalan di latar belakang!");
+        }).catch(error => {
+            console.log("Browser memblokir penuh autoplay, menunggu interaksi.");
+        });
+
+        // FUNGSI UNMUTE: Hidupkan suara begitu pengunjung klik apa saja di dalam website
+        function handleFirstClick() {
+            if (music.muted) {
+                music.muted = false; // Hidupkan suara asli
+                music.volume = targetVolume;
+                
+                if (musicIcon) musicIcon.className = "fa-solid fa-pause";
+                musicBtn.classList.add("playing");
+            }
+            // Hapus detektor klik ini agar tidak nge-reset volume terus setiap di-klik
+            document.removeEventListener("click", handleFirstClick);
+        }
+
+        // Jalankan fungsi unmute otomatis pada klik pertama pengunjung
+        document.addEventListener("click", handleFirstClick);
+
+        // KONTROL TOMBOL MANUAL (BGM Button di pojok kiri bawah)
+        musicBtn.addEventListener("click", function (e) {
+            e.stopPropagation(); // Biar tidak bentrok dengan detektor klik pertama di atas
+            
+            if (music.muted) {
+                // Jika masih dalam kondisi bisu, langsung hidupkan suaranya
+                music.muted = false;
+                music.play();
+                if (musicIcon) musicIcon.className = "fa-solid fa-pause";
+                musicBtn.classList.add("playing");
+            } else if (music.paused) {
+                // Jika musik sedang di-pause biasa, mainkan lagi
+                music.play();
+                if (musicIcon) musicIcon.className = "fa-solid fa-pause";
+                musicBtn.classList.add("playing");
             } else {
-                // Jika lagu sedang berputar, maka hentikan (pause)
+                // Jika musik sedang bunyi, pause suaranya
                 music.pause();
-                if (musicIcon) musicIcon.className = "fa-solid fa-play"; // Ubah ikon balik jadi play
+                if (musicIcon) musicIcon.className = "fa-solid fa-play";
                 musicBtn.classList.remove("playing");
             }
         });
