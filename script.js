@@ -205,3 +205,32 @@ document.addEventListener("DOMContentLoaded", function () {
         });
     }
 });
+
+// --- SCRIPT INTERAKSI TOOLTIP SKILL KHUSUS HP/MOBILE ---
+document.addEventListener("DOMContentLoaded", function () {
+    const skillCards = document.querySelectorAll(".skill-card");
+
+    skillCards.forEach(card => {
+        card.addEventListener("click", function (e) {
+            // Cek apakah layar perangkat adalah ukuran HP/Tablet
+            if (window.innerWidth <= 768) {
+                e.stopPropagation(); // Mencegah bentrok klik global
+
+                // Jika kartu yang sama diklik lagi, tutup tooltip-nya
+                if (this.classList.contains("active-tooltip")) {
+                    this.classList.remove("active-tooltip");
+                } else {
+                    // Bersihkan dulu tooltip aktif di kartu lain
+                    skillCards.forEach(c => c.classList.remove("active-tooltip"));
+                    // Aktifkan tooltip di kartu yang baru saja diklik
+                    this.classList.add("active-tooltip");
+                }
+            }
+        });
+    });
+
+    // Otomatis menutup tooltip melayang jika user mengklik area luar/kosong di HP
+    document.addEventListener("click", function () {
+        skillCards.forEach(c => c.classList.remove("active-tooltip"));
+    });
+});
