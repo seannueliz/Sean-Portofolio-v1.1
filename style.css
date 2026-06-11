@@ -508,14 +508,14 @@ nav.scrolled {
     line-height: 1.6;
 }
 
-/* Kotak pembungkus gambar standar */
+/* Kotak pembungkus gambar */
 .image-container {
-    width: 100%;
-    height: 180px; 
-    overflow: hidden; 
-    border-radius: 20px 20px 0 0; 
-    border-bottom: 1px solid var(--border-color);
-    background: rgba(0, 0, 0, 0.2); 
+    width: 100% !important;
+    height: 240px !important; /* <--- Ketinggian dinaikkan dari 170px ke 240px agar gambar lebih full */
+    overflow: hidden !important; 
+    border-radius: 20px 20px 0 0 !important; 
+    border-bottom: 1px solid var(--border-color) !important;
+    background: rgba(0, 0, 0, 0.2) !important;
 }
 
 .image-container img {
