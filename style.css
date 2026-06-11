@@ -529,8 +529,8 @@ nav.scrolled {
     transition: transform 0.5s cubic-bezier(0.25, 1, 0.5, 1) !important; /* Efek halus zoom */
 }
 
-/* Efek Gambar Membesar saat Kartu Di-hover Mouse */
-.project-card:hover .image-container img {
+/* Efek Gambar Membesar saat Kartu Di-hover Mouse (UPDATED) */
+.project-card-link:hover .image-container img {
     transform: scale(1.06) !important; /* Gambar nge-zoom 6% */
 }
 
