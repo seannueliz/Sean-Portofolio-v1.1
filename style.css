@@ -26,26 +26,26 @@
     --hero-gradient: linear-gradient(to bottom, #0f172a 40%, #0077b6);
 }
 
-*{
+* {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
-html{
+html {
     scroll-behavior: smooth;
 }
 
 body {
-    background: var(--bg-color); /* Berubah otomatis sesuai tema */
-    color: var(--text-color);    /* Berubah otomatis sesuai tema */
+    background: var(--bg-color);
+    color: var(--text-color);
     font-family: 'Inter', sans-serif;
     overflow-x: hidden;
-    transition: background 0.4s ease, color 0.4s ease; /* Efek transisi warna yang mulus */
+    transition: background 0.4s ease, color 0.4s ease;
 }
 
 /* Ambient Glow Efek di Background Atas */
-body::before{
+body::before {
     content: "";
     position: fixed;
     width: 600px;
@@ -60,8 +60,12 @@ body::before{
 /* NAVIGASI */
 nav {
     position: fixed;
-    top: 0; left: 0; width: 100%;
-    display: flex; justify-content: space-between; align-items: center;
+    top: 0; 
+    left: 0; 
+    width: 100%;
+    display: flex; 
+    justify-content: space-between; 
+    align-items: center;
     padding: 20px 8%;
     backdrop-filter: blur(12px);
     -webkit-backdrop-filter: blur(12px);
@@ -75,37 +79,37 @@ nav.scrolled {
     background: var(--nav-scrolled);
 }
 
-.logo{
+.logo {
     color: #00AFFF;
     font-size: 22px;
     font-weight: 700;
     transition: .3s;
 }
 
-.logo:hover{
+.logo:hover {
     text-shadow: 0 0 15px #00AFFF;
     cursor: pointer;
 }
 
-.menu{
+.menu {
     display: flex;
     gap: 25px;
 }
 
-.menu a{
+.menu a {
     text-decoration: none;
     color: #aaa;
     font-weight: 500;
     transition: .3s;
 }
 
-.menu a:hover, .menu a.active{
+.menu a:hover, .menu a.active {
     color: #00AFFF;
     text-shadow: 0 0 10px rgba(0, 175, 255, 0.5);
 }
 
 /* HERO SECTION */
-.hero{
+.hero {
     height: 100vh;
     display: flex;
     flex-direction: column;
@@ -116,7 +120,7 @@ nav.scrolled {
     padding-top: 80px;
 }
 
-.tag{
+.tag {
     border: 1px solid rgba(0,175,255,0.3);
     padding: 8px 18px;
     border-radius: 50px;
@@ -144,7 +148,7 @@ nav.scrolled {
     transition: color 0.4s ease;
 }
 
-.btn{
+.btn {
     margin-top: 35px;
     padding: 14px 32px;
     background: #00AFFF;
@@ -155,13 +159,13 @@ nav.scrolled {
     transition: .3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-.btn:hover{
+.btn:hover {
     transform: translateY(-4px);
     box-shadow: 0 0 25px rgba(0,175,255,0.6);
 }
 
 /* SECTIONS BASE */
-.about, .skills, .projects, .contact{
+.about, .skills, .projects, .contact {
     min-height: 80vh;
     padding: 100px 10%;
     display: flex;
@@ -169,7 +173,7 @@ nav.scrolled {
     justify-content: center;
 }
 
-h2{
+h2 {
     color: #00AFFF;
     font-size: 40px;
     font-weight: 700;
@@ -177,7 +181,7 @@ h2{
     letter-spacing: -1px;
 }
 
-.about p{
+.about p {
     max-width: 800px;
     color: #b1b1b8;
     line-height: 1.8;
@@ -185,7 +189,7 @@ h2{
 }
 
 /* SKILLS (Glassmorphism) */
-.skill-grid{
+.skill-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
     gap: 20px;
@@ -205,50 +209,33 @@ h2{
     transition: transform 0.3s, background 0.3s, border-color 0.3s;
 }
 
-.skill-icon{
+.skill-icon {
     font-size: 24px;
 }
 
-.skill-card:hover{
+.skill-card:hover {
     transform: translateY(-5px);
     background: rgba(0, 175, 255, 0.05);
     border-color: rgba(0, 175, 255, 0.5);
     box-shadow: 0 10px 30px rgba(0, 175, 255, 0.15);
 }
 
-/* PROJECTS */
-.project-grid{
+/* PROJECTS GRID */
+.project-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     gap: 25px;
 }
 
-.project-card {
+/* CONTACT SECTION - (SINTAKS FIX DI SINI) */
+.contact-box {
     background: var(--bg-card);
     border: 1px solid var(--border-color);
     padding: 35px;
     border-radius: 20px;
-    transition: transform 0.3s, background 0.3s, border-color 0.3s;
 }
 
-.project-card h3 {
-    color: var(--text-heading);
-}
-
-.project-card p {
-    color: var(--text-muted);
-}
-
-.project-card:hover {
-    background: var(--bg-card-hover);
-}
-
-/* CONTACT */
-background: var(--bg-card);
-    border: 1px solid var(--border-color);
-}
-
-.contact-box p{
+.contact-box p {
     margin-bottom: 20px;
     color: #e4e4e7;
     font-size: 18px;
@@ -265,7 +252,7 @@ background: var(--bg-card);
     min-width: 90px;
 }
 
-footer{
+footer {
     padding: 40px 20px;
     text-align: center;
     color: #52525b;
@@ -274,48 +261,48 @@ footer{
 }
 
 /* INTERACTIVE CURSOR GLOW */
-.cursor-glow{
+.cursor-glow {
     position: fixed;
     width: 300px;
     height: 300px;
     background: radial-gradient(circle, rgba(0,175,255,0.12) 0%, rgba(0,0,0,0) 70%);
     pointer-events: none;
     transform: translate(-50%, -50%);
-    z-index: -1; /* Berada di belakang konten utama, tapi di atas background beneran */
-    transition: transform 0.1s ease-out; /* Bikin pergerakan glow agak halus mengekor */
+    z-index: -1;
+    transition: transform 0.1s ease-out;
 }
 
 /* ANIMASI SCROLL (Intersection Observer) */
-.hidden{
+.hidden {
     opacity: 0;
     transform: translateY(40px);
     transition: opacity 0.8s ease, transform 0.8s cubic-bezier(0.25, 1, 0.5, 1);
 }
 
-.show{
+.show {
     opacity: 1;
     transform: translateY(0);
 }
 
 /* RESPONSIVE LAYOUT (MOBILE OPTIMIZATION) */
 @media (max-width: 768px) {
-    nav{
+    nav {
         padding: 15px 5%;
     }
-    .menu{
+    .menu {
         gap: 15px;
         font-size: 14px;
     }
-    .hero h1{
-        font-size: 3rem; /* Mengecil di HP agar tidak patah berantakan */
+    .hero h1 {
+        font-size: 3rem;
     }
-    .hero p{
+    .hero p {
         font-size: 16px;
     }
-    h2{
+    h2 {
         font-size: 32px;
     }
-    .about, .skills, .projects, .contact{
+    .about, .skills, .projects, .contact {
         padding: 80px 5%;
     }
 }
@@ -360,7 +347,14 @@ nav.scrolled {
 }
 
 .contact-item .icon {
-    font-size: 24px;
+    font-size: 28px;
+    color: #8a8a93;
+    transition: .3s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
 }
 
 .contact-item .info {
@@ -382,7 +376,7 @@ nav.scrolled {
     transition: .3s;
 }
 
-/* Efek Hover Kontak */
+/* Efek Hover Kontak General */
 .contact-item:hover {
     background: rgba(0, 175, 255, 0.08);
     border-color: rgba(0, 175, 255, 0.4);
@@ -392,39 +386,6 @@ nav.scrolled {
 .contact-item:hover .username {
     color: #00AFFF;
     text-shadow: 0 0 10px rgba(0, 175, 255, 0.3);
-}
-
-/* Indikator Tambahan untuk Kartu Project */
-.project-card {
-    position: relative;
-    overflow: hidden;
-}
-
-.project-card::after {
-    content: "➔";
-    position: absolute;
-    bottom: 25px;
-    right: -30px;
-    color: #00AFFF;
-    font-size: 20px;
-    transition: .3s ease;
-    opacity: 0;
-}
-
-.project-card:hover::after {
-    right: 35px;
-    opacity: 1;
-}
-
-.contact-item .icon {
-    font-size: 28px;
-    color: #8a8a93;
-    transition: .3s;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 40px;
-    height: 40px;
 }
 
 /* Hover Khusus Discord (Warna Blurple) */
@@ -461,7 +422,7 @@ nav.scrolled {
     text-shadow: -1px -1px 0 #00f2fe, 1px 1px 0 #fe2c55;
 }
 
-/* DESAIN TOMBOL SAKELAR DI NAVBAR */
+/* DESAIN TOMBOL SAKELAR THEME DI NAVBAR */
 .theme-btn {
     background: none;
     border: none;
@@ -479,7 +440,7 @@ nav.scrolled {
     transform: scale(1.2);
 }
 
-/* --- ANIMASI KURSOR KETIKAN --- */
+/* Animasi Kursor Ketikan Tag */
 .tag::after {
     content: "|";
     margin-left: 5px;
@@ -492,12 +453,12 @@ nav.scrolled {
 }
 
 /* --- DEKORASI GAMBAR PROJECT CARD (VERSI UTUH/CONTAIN) --- */
-
-/* Menghilangkan padding atas bawaan khusus pada kartu agar gambar menempel rapat */
 .project-card {
     padding: 0 0 30px 0 !important;
     display: flex;
     flex-direction: column;
+    position: relative;
+    overflow: hidden;
 }
 
 /* Mengatur ulang jarak teks judul dan deskripsi di dalam kartu */
@@ -514,38 +475,38 @@ nav.scrolled {
 /* Kotak pembungkus gambar */
 .image-container {
     width: 100% !important;
-    height: 170px !important; /* Tinggi kotak terkunci aman */
-    overflow: hidden !important; /* Sembunyikan luapan */
-    border-radius: 20px 20px 0 0 !important; /* Lengkungan sudut atas kartu */
+    height: 170px !important;
+    overflow: hidden !important;
+    border-radius: 20px 20px 0 0 !important;
     border-bottom: 1px solid var(--border-color) !important;
-    background: rgba(0, 0, 0, 0.2) !important; /* Warna dasar latar belakang gambar */
+    background: rgba(0, 0, 0, 0.2) !important;
 }
 
-/* Mengunci ukuran gambar di dalam kotak (VERSI UTUH TANPA DICROP) */
+/* Mengunci ukuran gambar di dalam kotak */
 .image-container img {
     width: 100% !important;
     height: 100% !important;
-    object-fit: contain !important; /* <--- Di sini letaknya! Gambar masuk full 100% tanpa terpotong */
-    transition: transform 0.5s cubic-bezier(0.25, 1, 0.5, 1) !important; /* Efek halus zoom */
-}
-
-/* Efek Gambar Membesar saat Kartu Di-hover Mouse (UPDATED) */
-.project-card-link:hover .image-container img {
-    transform: scale(1.06) !important; /* Gambar nge-zoom 6% */
+    object-fit: contain !important;
+    transition: transform 0.5s cubic-bezier(0.25, 1, 0.5, 1) !important;
 }
 
 /* Menjaga agar link pembungkus kartu tidak merusak warna teks */
 .project-card-link {
-    text-decoration: none !important; /* Menghilangkan garis bawah link */
-    color: inherit !important; /* Memaksa warna teks ikut warna asli kartu */
+    text-decoration: none !important;
+    color: inherit !important;
     display: block;
+}
+
+/* Efek Gambar Membesar saat Kartu Di-hover Mouse */
+.project-card-link:hover .image-container img {
+    transform: scale(1.06) !important;
 }
 
 /* --- BUTTON MUSIC PLAYER FLOATING --- */
 .music-btn {
     position: fixed;
     bottom: 25px;
-    left: 25px; /* Menempatkan tombol melayang di pojok kiri bawah layar */
+    left: 25px;
     background: var(--bg-card);
     color: var(--text-color);
     border: 1px solid var(--border-color);
@@ -558,8 +519,9 @@ nav.scrolled {
     display: flex;
     align-items: center;
     gap: 8px;
-    z-index: 9999; /* Memastikan tombol tidak tertutup elemen lain */
+    z-index: 9999;
     backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
     transition: all 0.3s ease;
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
 }
@@ -567,7 +529,7 @@ nav.scrolled {
 .music-btn:hover {
     background: var(--bg-card-hover);
     transform: translateY(-3px);
-    border-color: #aae2ff; /* Efek kilau neon tipis saat didekati mouse */
+    border-color: #aae2ff;
 }
 
 /* Animasi ikon berdenyut lembut saat lagu sedang berputar */
