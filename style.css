@@ -797,3 +797,48 @@ footer {
 [data-theme="light"] .preloader-logo {
     color: #111;
 }
+
+.back-to-top-btn {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #6c5ce7, #a29bfe);
+    color: #fff;
+    border: none;
+    font-size: 1.1rem;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 15px rgba(108, 92, 231, 0.4);
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(20px);
+    transition: opacity 0.3s ease, transform 0.3s ease, visibility 0.3s ease, background 0.3s ease;
+    z-index: 999;
+}
+
+.back-to-top-btn.show {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+.back-to-top-btn:hover {
+    background: linear-gradient(135deg, #a29bfe, #6c5ce7);
+    box-shadow: 0 6px 20px rgba(108, 92, 231, 0.6);
+    transform: translateY(-4px);
+}
+
+/* Biar gak numpuk sama tombol BGM di pojok bawah, kalau posisinya bentrok geser ke kiri */
+@media (max-width: 480px) {
+    .back-to-top-btn {
+        bottom: 90px;
+        right: 20px;
+        width: 42px;
+        height: 42px;
+    }
+}
