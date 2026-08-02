@@ -26,7 +26,6 @@ window.addEventListener("load", function () {
 document.addEventListener("DOMContentLoaded", () => {
 
     // --- FITUR BACK TO TOP BUTTON ---
-document.addEventListener("DOMContentLoaded", function () {
     const backToTopBtn = document.getElementById("back-to-top");
 
     if (backToTopBtn) {
@@ -45,7 +44,6 @@ document.addEventListener("DOMContentLoaded", function () {
             });
         });
     }
-});
     
     // 1. Animasi Muncul Saat Scroll
     const observer = new IntersectionObserver((entries) => {
