@@ -277,3 +277,59 @@ document.addEventListener("DOMContentLoaded", function () {
         skillCards.forEach(c => c.classList.remove("active-tooltip"));
     });
 });
+
+// --- FITUR FILTER PROJECTS ---
+const filterButtons = document.querySelectorAll('.filter-btn');
+const projectItems = document.querySelectorAll('.project-item');
+
+filterButtons.forEach(button => {
+    button.addEventListener('click', () => {
+        // Hapus class 'active' dari semua tombol, lalu tambahkan ke tombol yang diklik
+        filterButtons.forEach(btn => btn.classList.remove('active'));
+        button.classList.add('active');
+
+        const filterValue = button.getAttribute('data-filter');
+
+        projectItems.forEach(item => {
+            if (filterValue === 'all' || item.getAttribute('data-category') === filterValue) {
+                item.classList.remove('hide');
+            } else {
+                item.classList.add('hide');
+            }
+        });
+    });
+});
+
+// --- FITUR EMAILJS (CONTACT FORM) ---
+document.getElementById('contact-form').addEventListener('submit', function(event) {
+    event.preventDefault(); // Mencegah halaman reload
+
+    const statusText = document.getElementById('form-status');
+    const submitBtn = document.querySelector('.submit-btn');
+    
+    // Ubah tulisan tombol pas loading
+    submitBtn.innerText = "Sending...";
+    submitBtn.disabled = true;
+
+    // Parameter yang dikirim (harus sesuai dengan variabel di template EmailJS)
+    const templateParams = {
+        user_name: document.getElementById('user_name').value,
+        user_email: document.getElementById('user_email').value,
+        message: document.getElementById('message').value
+    };
+
+    // GANTI 'YOUR_SERVICE_ID' DAN 'YOUR_TEMPLATE_ID' DENGAN MILIK LU NANTI
+    emailjs.send('YOUR_SERVICE_ID', 'YOUR_TEMPLATE_ID', templateParams)
+        .then(function(response) {
+            statusText.innerText = "✅ Message sent successfully!";
+            statusText.style.color = "#4CAF50"; // Warna hijau
+            document.getElementById('contact-form').reset(); // Kosongin form
+            submitBtn.innerText = "Send Message";
+            submitBtn.disabled = false;
+        }, function(error) {
+            statusText.innerText = "❌ Failed to send message. Try again later.";
+            statusText.style.color = "#f44336"; // Warna merah
+            submitBtn.innerText = "Send Message";
+            submitBtn.disabled = false;
+        });
+});
