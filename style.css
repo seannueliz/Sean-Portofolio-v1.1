@@ -11,7 +11,7 @@
     --border-color: rgba(255, 255, 255, 0.03);
     --nav-bg: rgba(6, 6, 8, 0.7);
     --nav-scrolled: rgba(6, 6, 8, 0.95);
-    --hero-gradient: linear-gradient(to bottom, #ffffff 40%, #aae2ff);
+    --hero-gradient: linear-gradient(to bottom, #ffffff 40%, #ff9999);
 }
 
 [data-theme="light"] {
@@ -24,7 +24,7 @@
     --border-color: rgba(0, 0, 0, 0.06);
     --nav-bg: rgba(244, 246, 249, 0.7);
     --nav-scrolled: rgba(255, 255, 255, 0.95);
-    --hero-gradient: linear-gradient(to bottom, #0f172a 40%, #0077b6);
+    --hero-gradient: linear-gradient(to bottom, #0f172a 40%, #cc0000);
 }
 
 /* ==========================================================================
@@ -38,6 +38,7 @@
 
 html {
     scroll-behavior: smooth;
+    scroll-padding-top: 80px; /* Jarak aman saat klik navigasi */
 }
 
 body {
@@ -53,7 +54,7 @@ body::before {
     position: fixed;
     width: 600px;
     height: 600px;
-    background: radial-gradient(circle, rgba(0,175,255,0.2) 0%, rgba(0,0,0,0) 70%);
+    background: radial-gradient(circle, rgba(255, 51, 51, 0.15) 0%, rgba(0,0,0,0) 70%);
     top: -150px;
     right: -150px;
     z-index: -2;
@@ -83,19 +84,19 @@ nav {
 nav.scrolled {
     background: var(--nav-scrolled);
     padding: 15px 8%;
-    border-bottom: 1px solid rgba(0, 175, 255, 0.2);
+    border-bottom: 1px solid rgba(255, 51, 51, 0.2);
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
 }
 
 .logo {
-    color: #00AFFF;
+    color: #FF3333;
     font-size: 22px;
     font-weight: 700;
     transition: .3s;
 }
 
 .logo:hover {
-    text-shadow: 0 0 15px #00AFFF;
+    text-shadow: 0 0 15px #FF3333;
     cursor: pointer;
 }
 
@@ -112,8 +113,8 @@ nav.scrolled {
 }
 
 .menu a:hover, .menu a.active {
-    color: #00AFFF;
-    text-shadow: 0 0 10px rgba(0, 175, 255, 0.5);
+    color: #FF3333;
+    text-shadow: 0 0 10px rgba(255, 51, 51, 0.5);
 }
 
 .theme-btn {
@@ -129,7 +130,7 @@ nav.scrolled {
 }
 
 .theme-btn:hover {
-    color: #00AFFF;
+    color: #FF3333;
     transform: scale(1.2);
 }
 
@@ -148,15 +149,15 @@ nav.scrolled {
 }
 
 .tag {
-    border: 1px solid rgba(0,175,255,0.3);
+    border: 1px solid rgba(255, 51, 51, 0.3);
     padding: 8px 18px;
     border-radius: 50px;
-    color: #00AFFF;
+    color: #FF3333;
     font-size: 14px;
     font-weight: 600;
     letter-spacing: 1px;
     margin-bottom: 25px;
-    background: rgba(0, 175, 255, 0.05);
+    background: rgba(255, 51, 51, 0.05);
 }
 
 .tag::after {
@@ -189,7 +190,7 @@ nav.scrolled {
 .btn {
     margin-top: 35px;
     padding: 14px 32px;
-    background: #00AFFF;
+    background: #FF3333;
     color: white;
     text-decoration: none;
     border-radius: 12px;
@@ -199,7 +200,7 @@ nav.scrolled {
 
 .btn:hover {
     transform: translateY(-4px);
-    box-shadow: 0 0 25px rgba(0,175,255,0.6);
+    box-shadow: 0 0 25px rgba(255, 51, 51, 0.6);
 }
 
 .about, .skills, .projects, .contact {
@@ -211,7 +212,7 @@ nav.scrolled {
 }
 
 h2 {
-    color: #00AFFF;
+    color: #FF3333;
     font-size: 40px;
     font-weight: 700;
     margin-bottom: 30px;
@@ -246,7 +247,7 @@ h2 {
     align-items: center;
     gap: 15px;
     transition: transform 0.3s, background 0.3s, border-color 0.3s;
-    position: relative; /* Kunci penahan kotak tooltip */
+    position: relative;
 }
 
 .skill-icon {
@@ -255,9 +256,9 @@ h2 {
 
 .skill-card:hover {
     transform: translateY(-5px);
-    background: rgba(0, 175, 255, 0.05);
-    border-color: rgba(0, 175, 255, 0.5);
-    box-shadow: 0 10px 30px rgba(0, 175, 255, 0.15);
+    background: rgba(255, 51, 51, 0.05);
+    border-color: rgba(255, 51, 51, 0.5);
+    box-shadow: 0 10px 30px rgba(255, 51, 51, 0.15);
 }
 
 /* KOTAK TOOLTIP DESKRIPSI UTAMA */
@@ -276,7 +277,7 @@ h2 {
     border-radius: 10px;
     width: 290px;
     text-align: left;
-    border: 1px solid rgba(0, 175, 255, 0.2);
+    border: 1px solid rgba(255, 51, 51, 0.2);
     box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
     backdrop-filter: blur(8px);
     -webkit-backdrop-filter: blur(8px);
@@ -318,7 +319,7 @@ h2 {
 [data-theme="light"] .skill-card::before {
     background: rgba(255, 255, 255, 0.98);
     color: #1e1e24;
-    border-color: rgba(0, 175, 255, 0.4);
+    border-color: rgba(255, 51, 51, 0.4);
     box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
 }
 
@@ -466,14 +467,14 @@ h2 {
 }
 
 .contact-item:hover {
-    background: rgba(0, 175, 255, 0.08);
-    border-color: rgba(0, 175, 255, 0.4);
+    background: rgba(255, 51, 51, 0.08);
+    border-color: rgba(255, 51, 51, 0.4);
     transform: translateX(8px);
 }
 
 .contact-item:hover .username {
-    color: #00AFFF;
-    text-shadow: 0 0 10px rgba(0, 175, 255, 0.3);
+    color: #FF3333;
+    text-shadow: 0 0 10px rgba(255, 51, 51, 0.3);
 }
 
 .contact-item.discord:hover {
@@ -519,22 +520,11 @@ footer {
     position: fixed;
     width: 300px;
     height: 300px;
-    background: radial-gradient(circle, rgba(0,175,255,0.12) 0%, rgba(0,0,0,0) 70%);
+    background: radial-gradient(circle, rgba(255, 51, 51, 0.12) 0%, rgba(0,0,0,0) 70%);
     pointer-events: none;
     transform: translate(-50%, -50%);
     z-index: -1;
     transition: transform 0.1s ease-out;
-}
-
-.hidden {
-    opacity: 0;
-    transform: translateY(40px);
-    transition: opacity 0.8s ease, transform 0.8s cubic-bezier(0.25, 1, 0.5, 1);
-}
-
-.show {
-    opacity: 1;
-    transform: translateY(0);
 }
 
 /* ==========================================================================
@@ -566,7 +556,7 @@ footer {
 .music-btn:hover {
     background: var(--bg-card-hover);
     transform: translateY(-3px);
-    border-color: #aae2ff;
+    border-color: #ff9999;
 }
 
 .music-btn.playing i {
@@ -575,7 +565,7 @@ footer {
 
 @keyframes musicPulse {
     0% { transform: scale(1); }
-    100% { transform: scale(1.2); color: #aae2ff; }
+    100% { transform: scale(1.2); color: #ff9999; }
 }
 
 /* ==========================================================================
@@ -633,15 +623,15 @@ footer {
 
 .stats-card:hover {
     transform: translateY(-5px);
-    border-color: rgba(0, 175, 255, 0.4);
+    border-color: rgba(255, 51, 51, 0.4);
 }
 
 .stats-number {
     display: block;
     font-size: 2.8rem;
     font-weight: 800;
-    color: #00AFFF;
-    text-shadow: 0 0 20px rgba(0, 175, 255, 0.3);
+    color: #FF3333;
+    text-shadow: 0 0 20px rgba(255, 51, 51, 0.3);
     margin-bottom: 5px;
 }
 
@@ -654,7 +644,7 @@ footer {
 /* --- TIMELINE VERTICAL STYLING --- */
 .timeline {
     position: relative;
-    border-left: 2px solid rgba(0, 175, 255, 0.2);
+    border-left: 2px solid rgba(255, 51, 51, 0.2);
     padding-left: 30px;
     margin-left: 10px;
 }
@@ -676,9 +666,9 @@ footer {
     width: 16px;
     height: 16px;
     background: #060608;
-    border: 3px solid #00AFFF;
+    border: 3px solid #FF3333;
     border-radius: 50%;
-    box-shadow: 0 0 10px #00AFFF;
+    box-shadow: 0 0 10px #FF3333;
     z-index: 2;
 }
 
@@ -689,7 +679,7 @@ footer {
 .timeline-date {
     font-size: 0.95rem;
     font-weight: 700;
-    color: #00AFFF;
+    color: #FF3333;
     margin-bottom: 8px;
 }
 
@@ -727,6 +717,9 @@ footer {
     .timeline-content { padding: 20px; }
 }
 
+/* ==========================================================================
+   11. PRELOADER & BACK TO TOP (MERAH)
+   ========================================================================== */
 #preloader {
     position: fixed;
     top: 0;
@@ -774,7 +767,7 @@ footer {
 .preloader-progress {
     height: 100%;
     width: 0%;
-    background: linear-gradient(90deg, #6c5ce7, #a29bfe);
+    background: linear-gradient(90deg, #d32f2f, #ff6b6b);
     border-radius: 10px;
     transition: width 0.2s ease;
 }
@@ -790,7 +783,6 @@ footer {
     to { opacity: 1; transform: translateY(0); }
 }
 
-/* Support light mode kalau kamu pakai data-theme */
 [data-theme="light"] #preloader {
     background: #ffffff;
 }
@@ -805,7 +797,7 @@ footer {
     width: 48px;
     height: 48px;
     border-radius: 50%;
-    background: linear-gradient(135deg, #6c5ce7, #a29bfe);
+    background: linear-gradient(135deg, #d32f2f, #ff6b6b);
     color: #fff;
     border: none;
     font-size: 1.1rem;
@@ -813,7 +805,7 @@ footer {
     display: flex;
     align-items: center;
     justify-content: center;
-    box-shadow: 0 4px 15px rgba(108, 92, 231, 0.4);
+    box-shadow: 0 4px 15px rgba(211, 47, 47, 0.4);
     opacity: 0;
     visibility: hidden;
     transform: translateY(20px);
@@ -828,12 +820,11 @@ footer {
 }
 
 .back-to-top-btn:hover {
-    background: linear-gradient(135deg, #a29bfe, #6c5ce7);
-    box-shadow: 0 6px 20px rgba(108, 92, 231, 0.6);
+    background: linear-gradient(135deg, #ff6b6b, #d32f2f);
+    box-shadow: 0 6px 20px rgba(211, 47, 47, 0.6);
     transform: translateY(-4px);
 }
 
-/* Biar gak numpuk sama tombol BGM di pojok bawah, kalau posisinya bentrok geser ke kiri */
 @media (max-width: 480px) {
     .back-to-top-btn {
         bottom: 90px;
@@ -843,7 +834,9 @@ footer {
     }
 }
 
-/* --- FILTER BUTTONS --- */
+/* ==========================================================================
+   12. FILTER BUTTONS & CONTACT FORM
+   ========================================================================== */
 .filter-container {
     display: flex;
     justify-content: center;
@@ -870,10 +863,9 @@ footer {
 }
 
 .project-item.hide {
-    display: none; /* Menyembunyikan card yang tidak sesuai filter */
+    display: none; 
 }
 
-/* --- CONTACT FORM --- */
 .contact-container {
     display: flex;
     gap: 30px;
@@ -884,7 +876,7 @@ footer {
 .contact-box, .contact-form-box {
     flex: 1;
     min-width: 300px;
-    background: #111; /* Sesuaikan dengan warna card web lu */
+    background: #111;
     padding: 30px;
     border-radius: 15px;
     border: 1px solid #333;
