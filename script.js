@@ -1,8 +1,10 @@
-// --- FITUR PRELOADER / LOADING SCREEN ---
+// --- FITUR PRELOADER / LOADING SCREEN DENGAN TEKS WELCOME ---
 window.addEventListener("load", function () {
     const preloader = document.getElementById("preloader");
     const progressBar = document.querySelector(".preloader-progress");
     const percentText = document.querySelector(".preloader-percent");
+    const preloaderBarContainer = document.querySelector(".preloader-bar");
+    const welcomeText = document.getElementById("preloader-welcome-text");
 
     if (preloader && progressBar && percentText) {
         let progress = 0;
@@ -13,13 +15,19 @@ window.addEventListener("load", function () {
                 progress = 100;
                 clearInterval(interval);
 
+                // Begitu 100%, sembunyikan bar & persen, lalu tampilkan teks WELCOME
+                if (preloaderBarContainer) preloaderBarContainer.style.display = "none";
+                if (percentText) percentText.style.display = "none";
+                if (welcomeText) welcomeText.style.display = "block";
+
+                // Jeda 600ms (0.6 detik) menampilkan teks WELCOME sebelum preloader tertutup
                 setTimeout(() => {
                     preloader.classList.add("loaded");
-                }, 300); // jeda dikit sebelum hilang, biar gak kaget
+                }, 600); 
             }
             progressBar.style.width = progress + "%";
             percentText.innerText = progress + "%";
-        }, 100);
+        }, 80);
     }
 });
 
@@ -170,34 +178,28 @@ document.addEventListener("DOMContentLoaded", () => {
         const currentWord = words[wordIndex];
         
         if (isDeleting) {
-            // Proses menghapus huruf
             textElement.innerText = currentWord.substring(0, charIndex - 1);
             charIndex--;
         } else {
-            // Proses mengetik huruf
             textElement.innerText = currentWord.substring(0, charIndex + 1);
             charIndex++;
         }
 
-        // Penentuan kecepatan ketik
         let typeSpeed = isDeleting ? 50 : 100;
 
-        // Jika kata sudah selesai diketik penuh
         if (!isDeleting && charIndex === currentWord.length) {
-            typeSpeed = 1500; // Jeda diam dulu selama 1.5 detik sebelum dihapus
+            typeSpeed = 1500; 
             isDeleting = true;
         } 
-        // Jika kata sudah habis terhapus
         else if (isDeleting && charIndex === 0) {
             isDeleting = false;
-            wordIndex = (wordIndex + 1) % words.length; // Ganti ke kata berikutnya
-            typeSpeed = 500; // Jeda sebelum mulai ngetik kata baru
+            wordIndex = (wordIndex + 1) % words.length; 
+            typeSpeed = 500; 
         }
 
         setTimeout(typeEffect, typeSpeed);
     }
 
-    // Jalankan animasi ketik jika elemennya ada
     if (textElement) {
         typeEffect();
     }
@@ -213,23 +215,17 @@ document.addEventListener("DOMContentLoaded", function () {
         const targetVolume = 0.4;
         music.volume = targetVolume;
 
-        // Tunggu metadata siap sebelum set currentTime, biar gak silent-fail
         music.addEventListener("loadedmetadata", () => {
             music.currentTime = 70;
         });
 
         let hasStartedByInteraction = false;
 
-        // Coba autoplay muted langsung
         music.play().then(() => {
-            console.log("Autoplay muted sukses berjalan di latar belakang!");
             if (musicIcon) musicIcon.className = "fa-solid fa-pause";
             musicBtn.classList.add("playing");
-        }).catch(() => {
-            console.log("Browser memblokir penuh autoplay, menunggu interaksi.");
-        });
+        }).catch(() => {});
 
-        // Begitu ada interaksi pertama (klik di mana saja), unmute + pastikan play
         function handleFirstClick() {
             if (!hasStartedByInteraction) {
                 music.muted = false;
@@ -244,7 +240,6 @@ document.addEventListener("DOMContentLoaded", function () {
         }
         document.addEventListener("click", handleFirstClick);
 
-        // KONTROL TOMBOL MANUAL (BGM Button)
         musicBtn.addEventListener("click", function (e) {
             e.stopPropagation();
 
@@ -269,24 +264,19 @@ document.addEventListener("DOMContentLoaded", function () {
 
     skillCards.forEach(card => {
         card.addEventListener("click", function (e) {
-            // Cek apakah layar perangkat adalah ukuran HP/Tablet
             if (window.innerWidth <= 768) {
-                e.stopPropagation(); // Mencegah bentrok klik global
+                e.stopPropagation(); 
 
-                // Jika kartu yang sama diklik lagi, tutup tooltip-nya
                 if (this.classList.contains("active-tooltip")) {
                     this.classList.remove("active-tooltip");
                 } else {
-                    // Bersihkan dulu tooltip aktif di kartu lain
                     skillCards.forEach(c => c.classList.remove("active-tooltip"));
-                    // Aktifkan tooltip di kartu yang baru saja diklik
                     this.classList.add("active-tooltip");
                 }
             }
         });
     });
 
-    // Otomatis menutup tooltip melayang jika user mengklik area luar/kosong di HP
     document.addEventListener("click", function () {
         skillCards.forEach(c => c.classList.remove("active-tooltip"));
     });
@@ -298,7 +288,6 @@ const projectItems = document.querySelectorAll('.project-item');
 
 filterButtons.forEach(button => {
     button.addEventListener('click', () => {
-        // Hapus class 'active' dari semua tombol, lalu tambahkan ke tombol yang diklik
         filterButtons.forEach(btn => btn.classList.remove('active'));
         button.classList.add('active');
 
@@ -316,33 +305,30 @@ filterButtons.forEach(button => {
 
 // --- FITUR EMAILJS (CONTACT FORM) ---
 document.getElementById('contact-form').addEventListener('submit', function(event) {
-    event.preventDefault(); // Mencegah halaman reload
+    event.preventDefault(); 
 
     const statusText = document.getElementById('form-status');
     const submitBtn = document.querySelector('.submit-btn');
     
-    // Ubah tulisan tombol pas loading
     submitBtn.innerText = "Sending...";
     submitBtn.disabled = true;
 
-    // Parameter yang dikirim (sudah disesuaikan dengan template EmailJS lu: name, email, message)
     const templateParams = {
         name: document.getElementById('user_name').value,
         email: document.getElementById('user_email').value,
         message: document.getElementById('message').value
     };
 
-    // Menggunakan Service ID lu dan Template ID dari screenshot (8vz4juc)
     emailjs.send('service_s7jfm3l', 'template_q98gvsj', templateParams)
         .then(function(response) {
             statusText.innerText = "✅ Message sent successfully!";
-            statusText.style.color = "#4CAF50"; // Warna hijau
-            document.getElementById('contact-form').reset(); // Kosongin form
+            statusText.style.color = "#4CAF50"; 
+            document.getElementById('contact-form').reset(); 
             submitBtn.innerText = "Send Message";
             submitBtn.disabled = false;
         }, function(error) {
             statusText.innerText = "❌ Failed to send message. Try again later.";
-            statusText.style.color = "#f44336"; // Warna merah
+            statusText.style.color = "#f44336"; 
             submitBtn.innerText = "Send Message";
             submitBtn.disabled = false;
         });
