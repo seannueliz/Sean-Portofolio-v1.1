@@ -36,7 +36,7 @@ document.addEventListener("DOMContentLoaded", () => {
     // --- FITUR GANTI BAHASA (ID / EN) ---
     const langToggleBtn = document.getElementById("lang-toggle");
     
-    // Kamus Terjemahan
+    // Kamus Terjemahan Lengkap
     const translations = {
         en: {
             nav_home: "Home",
@@ -45,10 +45,37 @@ document.addEventListener("DOMContentLoaded", () => {
             nav_skills: "Skills",
             nav_projects: "Projects",
             nav_contact: "Contact",
-            hero_subtitle: "Computer Networking Student | Web Developer | Content Creator.",
+            hero_subtitle: "Computer Networking Student | Web Developer | Content Creator | Front-End Development.",
             hero_btn: "Explore",
             about_title: "About Me",
-            // Tambahkan terjemahan teks lain di sini jika perlu
+            about_p1: "I am a Computer and Networking student with a lifelong passion for technology, having been immersed in the world of computers since the age of three. Growing up surrounded by hardware, software, and digital technology shaped not only my curiosity but also my determination to continuously learn and explore new possibilities within the tech industry.",
+            about_p2: "My journey into the creative field began in 2017 as a Digital Creator, where I developed experience in graphic design, digital branding, content production, video editing, and visual storytelling. Throughout the years, I have worked on a variety of personal and collaborative projects that strengthened my creativity, attention to detail, and ability to transform ideas into engaging digital experiences.",
+            about_p3: "Beyond creative work, I have always been passionate about understanding how technology works behind the scenes. This led me to pursue Computer and Networking, where I continue to expand my knowledge in computer hardware, networking fundamentals, troubleshooting, operating systems, and IT infrastructure. Combining technical expertise with creativity has become one of my greatest strengths.",
+            about_p4: "Recently, I have broadened my skill set by learning Front-End Web Development. I enjoy building responsive, modern, and user-friendly websites using HTML, CSS, JavaScript, and continuously exploring new frameworks and technologies. My goal is to create digital experiences that are not only visually appealing but also efficient, accessible, and technically well-structured.",
+            about_p5: "I consider myself a fast learner, an adaptive problem solver, and someone who enjoys taking on new challenges. Whether I am designing digital content, troubleshooting technical issues, or developing web interfaces, I strive to deliver work with precision, creativity, and continuous improvement. As I continue growing in the technology industry, I aim to become a versatile developer who bridges creativity and engineering to build meaningful digital products.",
+            journey_title: "My Journey & Stats",
+            stat_exp: "Years of Experience",
+            stat_projects: "Digital Projects Done",
+            stat_community: "Community Members Managed",
+            tl_1_title: "Start Roblox Community Management",
+            tl_1_desc: "Diving deep into the Roblox ecosystem, managing community spaces, moderating player interactions, and organizing digital events for gaming groups.",
+            tl_2_title: "3D Animation",
+            tl_2_desc: "Began learning 3D workflows in Blender for Roblox assets.",
+            tl_3_title: "XЯΞVERSE Clan Contributor & UGC Workflows",
+            tl_3_desc: "Joined XЯΞVERSE as a content contributor and video editor on TikTok. Expanded skills into Roblox UGC development.",
+            tl_4_title: "Front-End Web Development Expansion",
+            tl_4_desc: "Blending networking logic and digital creativity into interactive web development, building clean, premium front-end web experiences.",
+            skills_title: "Skills",
+            projects_title: "Projects",
+            filter_all: "All",
+            filter_video: "Video Editing",
+            filter_roblox: "Roblox Design",
+            contact_title: "Contact",
+            contact_desc: "Use this contact for more knowing about me!",
+            form_name: "Your Name",
+            form_email: "Your Email",
+            form_msg: "Your Message",
+            form_btn: "Send Message"
         },
         id: {
             nav_home: "Beranda",
@@ -57,9 +84,37 @@ document.addEventListener("DOMContentLoaded", () => {
             nav_skills: "Keahlian",
             nav_projects: "Proyek",
             nav_contact: "Kontak",
-            hero_subtitle: "Siswa Teknik Komputer & Jaringan | Pengembang Web | Konten Kreator.",
+            hero_subtitle: "Pelajar Komputer & Jaringan | Web Developer | Content Creator | Front-End Development.",
             hero_btn: "Jelajahi",
             about_title: "Tentang Saya",
+            about_p1: "Saya adalah seorang pelajar bidang Komputer dan Jaringan dengan minat mendalam terhadap teknologi sejak usia tiga tahun. Tumbuh di lingkungan perangkat keras, perangkat lunak, dan teknologi digital membentuk rasa ingin tahu serta tekad saya untuk terus belajar dan mengeksplorasi peluang baru di industri teknologi.",
+            about_p2: "Perjalanan saya di dunia kreatif dimulai pada tahun 2017 sebagai Digital Creator, di mana saya mendalami desain grafis, branding digital, produksi konten, penyuntingan video, dan penceritaan visual. Selama bertahun-tahun, saya telah terlibat dalam berbagai proyek pribadi maupun kolaboratif yang mengasah kreativitas, ketelitian, dan kemampuan mewujudkan ide menjadi pengalaman digital yang menarik.",
+            about_p3: "Selain dunia kreatif, saya selalu tertarik memahami cara kerja teknologi di balik layar. Hal ini mendorong saya mendalami bidang Komputer dan Jaringan, memperluas wawasan seputar perangkat keras komputer, dasar-dasar jaringan, pemecahan masalah (troubleshooting), sistem operasi, dan infrastruktur IT. Memadukan keahlian teknis dengan kreativitas telah menjadi salah satu kekuatan utama saya.",
+            about_p4: "Baru-baru ini, saya memperluas keterampilan dengan mempelajari Front-End Web Development. Saya menikmati proses membangun situs web yang responsif, modern, dan ramah pengguna menggunakan HTML, CSS, JavaScript, serta terus mengeksplorasi teknologi dan framework baru. Tujuan saya adalah menghadirkan pengalaman digital yang estetis, efisien, aksesibel, dan terstruktur dengan baik.",
+            about_p5: "Saya menganggap diri saya sebagai pembelajar cepat, pemecah masalah yang adaptif, dan pribadi yang menyukai tantangan baru. Baik saat merancang konten digital, memperbaiki kendala teknis, maupun mengembangkan antarmuka web, saya selalu berusaha memberikan hasil terbaik dengan ketelitian, kreativitas, dan peningkatan berkelanjutan. Seiring langkah saya di industri teknologi, saya bercita-cita menjadi developer serba bisa yang menjembatani kreativitas dan teknik untuk menciptakan produk digital yang bermakna.",
+            journey_title: "Perjalanan & Statistik",
+            stat_exp: "Tahun Pengalaman",
+            stat_projects: "Proyek Digital Selesai",
+            stat_community: "Anggota Komunitas Dikelola",
+            tl_1_title: "Memulai Manajemen Komunitas Roblox",
+            tl_1_desc: "Terjun mendalam ke ekosistem Roblox, mengelola ruang komunitas, memoderasi interaksi pemain, dan menyelenggarakan acara digital untuk kelompok gaming.",
+            tl_2_title: "Animasi 3D",
+            tl_2_desc: "Mulai mempelajari alur kerja 3D menggunakan Blender untuk aset Roblox.",
+            tl_3_title: "Kontributor Klan XЯΞVERSE & Alur Kerja UGC",
+            tl_3_desc: "Bergabung dengan XЯΞVERSE sebagai kontributor konten dan editor video di TikTok. Memperluas keterampilan ke pengembangan UGC Roblox.",
+            tl_4_title: "Ekspansi Front-End Web Development",
+            tl_4_desc: "Memadukan logika jaringan dan kreativitas digital ke dalam web development interaktif, membangun pengalaman web front-end yang bersih dan premium.",
+            skills_title: "Keahlian",
+            projects_title: "Proyek",
+            filter_all: "Semua",
+            filter_video: "Penyuntingan Video",
+            filter_roblox: "Desain Roblox",
+            contact_title: "Kontak",
+            contact_desc: "Gunakan kontak ini untuk mengenal saya lebih jauh!",
+            form_name: "Nama Anda",
+            form_email: "Email Anda",
+            form_msg: "Pesan Anda",
+            form_btn: "Kirim Pesan"
         }
     };
 
@@ -70,6 +125,14 @@ document.addEventListener("DOMContentLoaded", () => {
                 element.innerText = translations[lang][key];
             }
         });
+
+        document.querySelectorAll("[data-i18n-placeholder]").forEach(element => {
+            const key = element.getAttribute("data-i18n-placeholder");
+            if (translations[lang] && translations[lang][key]) {
+                element.setAttribute("placeholder", translations[lang][key]);
+            }
+        });
+
         if (langToggleBtn) {
             langToggleBtn.innerText = lang === "id" ? "EN" : "ID";
         }
