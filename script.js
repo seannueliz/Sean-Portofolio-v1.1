@@ -25,6 +25,20 @@ window.addEventListener("load", function () {
 
 document.addEventListener("DOMContentLoaded", () => {
 
+    // Tombol Explore Smooth Scroll
+    const exploreBtn = document.querySelector('.hero .btn');
+    if (exploreBtn) {
+        exploreBtn.addEventListener('click', function(e) {
+            e.preventDefault();
+            const targetSection = document.querySelector('#about');
+            if (targetSection) {
+                targetSection.scrollIntoView({
+                    behavior: 'smooth'
+                });
+            }
+        });
+    }
+    
     // --- FITUR BACK TO TOP BUTTON ---
     const backToTopBtn = document.getElementById("back-to-top");
 
