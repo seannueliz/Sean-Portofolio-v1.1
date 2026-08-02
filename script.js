@@ -32,11 +32,10 @@ window.addEventListener("load", function () {
 // --- UTAMA: DOM CONTENT LOADED ---
 document.addEventListener("DOMContentLoaded", () => {
 
-    // --- FITUR LIVE LOCAL TIME WIDGET ---
+    // 1. FITUR LIVE LOCAL TIME WIDGET
     function updateLocalTime() {
         const timeElement = document.getElementById("time-text");
         if (timeElement) {
-            // Mengambil waktu lokal WIB (Waktu Indonesia Barat / Asia/Jakarta)
             const options = {
                 timeZone: "Asia/Jakarta",
                 hour: '2-digit',
@@ -52,7 +51,7 @@ document.addEventListener("DOMContentLoaded", () => {
     setInterval(updateLocalTime, 1000);
     updateLocalTime();
     
-    // 1. FITUR GANTI BAHASA (ID / EN)
+    // 2. FITUR GANTI BAHASA (ID / EN)
     const langToggleBtn = document.getElementById("lang-toggle");
     
     const translations = {
@@ -168,7 +167,7 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     }
 
-    // 2. Tombol Explore Smooth Scroll
+    // 3. Tombol Explore Smooth Scroll
     const exploreBtn = document.querySelector('.hero .btn');
     if (exploreBtn) {
         exploreBtn.addEventListener('click', function(e) {
@@ -180,7 +179,7 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     }
     
-    // 3. Back to Top Button
+    // 4. Back to Top Button
     const backToTopBtn = document.getElementById("back-to-top");
     if (backToTopBtn) {
         window.addEventListener("scroll", () => {
@@ -196,7 +195,7 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     }
 
-    // 4. Navigasi Pintar & Aktif Link
+    // 5. Navigasi Pintar & Aktif Link
     const navbar = document.querySelector("nav");
     const sections = document.querySelectorAll("section, hero");
     const navLinks = document.querySelectorAll("nav .menu a");
@@ -224,7 +223,7 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     });
 
-    // 5. Efek Kursor Glow
+    // 6. Efek Kursor Glow
     const glow = document.querySelector(".cursor-glow");
     if (glow) {
         document.addEventListener("mousemove", (e) => {
@@ -233,7 +232,7 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     }
 
-    // 6. Logika Mode Gelap / Terang
+    // 7. Logika Mode Gelap / Terang
     const themeToggleBtn = document.getElementById("theme-toggle");
     if (themeToggleBtn) {
         const themeIcon = themeToggleBtn.querySelector("i");
@@ -260,7 +259,7 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     }
 
-    // 7. Click to Copy Discord
+    // 8. Click to Copy Discord
     const discordBtn = document.querySelector(".contact-item.discord");
     if (discordBtn) {
         discordBtn.addEventListener("click", (e) => {
@@ -280,7 +279,7 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     }
 
-    // 8. Animasi Mengetik (Typing Effect)
+    // 9. Animasi Mengetik (Typing Effect)
     const textElement = document.getElementById("typing-text");
     const words = ["Tech Enthusiast", "Contributor", "Web Developer", "Digital Creator", "UGC Creator"];
     let wordIndex = 0;
