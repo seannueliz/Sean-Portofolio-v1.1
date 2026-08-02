@@ -311,15 +311,15 @@ document.getElementById('contact-form').addEventListener('submit', function(even
     submitBtn.innerText = "Sending...";
     submitBtn.disabled = true;
 
-    // Parameter yang dikirim (harus sesuai dengan variabel di template EmailJS)
+    // Parameter yang dikirim (sudah disesuaikan dengan template EmailJS lu: name, email, message)
     const templateParams = {
-        user_name: document.getElementById('user_name').value,
-        user_email: document.getElementById('user_email').value,
+        name: document.getElementById('user_name').value,
+        email: document.getElementById('user_email').value,
         message: document.getElementById('message').value
     };
 
-    // GANTI 'YOUR_SERVICE_ID' DAN 'YOUR_TEMPLATE_ID' DENGAN MILIK LU NANTI
-    emailjs.send('service_s7jfm3l', 'template_q98gvsj', templateParams)
+    // Menggunakan Service ID lu dan Template ID dari screenshot (8vz4juc)
+    emailjs.send('service_s7jfm3l', '8vz4juc', templateParams)
         .then(function(response) {
             statusText.innerText = "✅ Message sent successfully!";
             statusText.style.color = "#4CAF50"; // Warna hijau
