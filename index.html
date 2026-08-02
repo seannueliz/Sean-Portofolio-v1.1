@@ -16,7 +16,7 @@
 </head>
 <body>
 
-   <div id="preloader">
+    <div id="preloader">
         <div class="preloader-content">
             <div class="preloader-logo">Nueliz</div>
             <div class="preloader-bar"><div class="preloader-progress"></div></div>
@@ -28,12 +28,18 @@
     <nav data-aos="fade-down" data-aos-duration="1000">
         <div class="logo">nueliz.gg</div>
         <div class="menu">
-            <a href="#">Home</a>
-            <a href="#about">About</a>
-            <a href="#journey">Journey</a> 
-            <a href="#skills">Skills</a>
-            <a href="#projects">Projects</a>
-            <a href="#contact">Contact</a>
+            <a href="#" data-i18n="nav_home">Home</a>
+            <a href="#about" data-i18n="nav_about">About</a>
+            <a href="#journey" data-i18n="nav_journey">Journey</a> 
+            <a href="#skills" data-i18n="nav_skills">Skills</a>
+            <a href="#projects" data-i18n="nav_projects">Projects</a>
+            <a href="#contact" data-i18n="nav_contact">Contact</a>
+            
+            <!-- Tombol Switch Bahasa ID/EN (Persis di sebelah Theme Toggle) -->
+            <button id="lang-toggle" class="theme-btn" aria-label="Toggle Language" style="font-size: 13px; font-weight: 700;">
+                EN
+            </button>
+
             <button id="theme-toggle" class="theme-btn" aria-label="Toggle Dark Mode">
                 <i class="fa-solid fa-moon"></i>
             </button>
@@ -43,43 +49,43 @@
     <section class="hero">
         <span class="tag" id="typing-text" data-aos="fade-down" data-aos-delay="200"></span>
         <h1 data-aos="fade-up" data-aos-delay="400">Sean Rendy Emmanuel</h1>
-        <p data-aos="fade-up" data-aos-delay="600">Computer Networking Student | Web Developer | Content Creator | Front-End Development.</p>
-        <a href="#about" class="btn" data-aos="zoom-in" data-aos-delay="800">Explore</a>
+        <p data-aos="fade-up" data-aos-delay="600" data-i18n="hero_subtitle">Computer Networking Student | Web Developer | Content Creator | Front-End Development.</p>
+        <a href="#about" class="btn" data-aos="zoom-in" data-aos-delay="800" data-i18n="hero_btn">Explore</a>
     </section>
 
     <section id="about" class="about">
-        <h2 data-aos="fade-right">About Me</h2>
-        <p data-aos="fade-up" data-aos-delay="200">
+        <h2 data-aos="fade-right" data-i18n="about_title">About Me</h2>
+        <p data-aos="fade-up" data-aos-delay="200" data-i18n="about_p1">
             I am a Computer and Networking student with a lifelong passion for technology, having been immersed in the world of computers since the age of three. Growing up surrounded by hardware, software, and digital technology shaped not only my curiosity but also my determination to continuously learn and explore new possibilities within the tech industry.
         </p>
-        <p style="margin-top: 15px;" data-aos="fade-up" data-aos-delay="300">
+        <p style="margin-top: 15px;" data-aos="fade-up" data-aos-delay="300" data-i18n="about_p2">
             My journey into the creative field began in 2017 as a Digital Creator, where I developed experience in graphic design, digital branding, content production, video editing, and visual storytelling. Throughout the years, I have worked on a variety of personal and collaborative projects that strengthened my creativity, attention to detail, and ability to transform ideas into engaging digital experiences.
         </p>
-        <p style="margin-top: 15px;" data-aos="fade-up" data-aos-delay="400">
+        <p style="margin-top: 15px;" data-aos="fade-up" data-aos-delay="400" data-i18n="about_p3">
             Beyond creative work, I have always been passionate about understanding how technology works behind the scenes. This led me to pursue Computer and Networking, where I continue to expand my knowledge in computer hardware, networking fundamentals, troubleshooting, operating systems, and IT infrastructure. Combining technical expertise with creativity has become one of my greatest strengths.
         </p>
-        <p style="margin-top: 15px;" data-aos="fade-up" data-aos-delay="500">
+        <p style="margin-top: 15px;" data-aos="fade-up" data-aos-delay="500" data-i18n="about_p4">
             Recently, I have broadened my skill set by learning Front-End Web Development. I enjoy building responsive, modern, and user-friendly websites using HTML, CSS, JavaScript, and continuously exploring new frameworks and technologies. My goal is to create digital experiences that are not only visually appealing but also efficient, accessible, and technically well-structured.
         </p>
-        <p style="margin-top: 15px;" data-aos="fade-up" data-aos-delay="600">
+        <p style="margin-top: 15px;" data-aos="fade-up" data-aos-delay="600" data-i18n="about_p5">
             I consider myself a fast learner, an adaptive problem solver, and someone who enjoys taking on new challenges. Whether I am designing digital content, troubleshooting technical issues, or developing web interfaces, I strive to deliver work with precision, creativity, and continuous improvement. As I continue growing in the technology industry, I aim to become a versatile developer who bridges creativity and engineering to build meaningful digital products.
         </p>
     </section>
 
     <section id="journey" class="journey">
-        <h2 data-aos="fade-right">My Journey & Stats</h2>
+        <h2 data-aos="fade-right" data-i18n="journey_title">My Journey & Stats</h2>
         <div class="stats-grid">
             <div class="stats-card" data-aos="zoom-in" data-aos-delay="100">
                 <span class="stats-number">5+</span>
-                <span class="stats-label">Years of Experience</span>
+                <span class="stats-label" data-i18n="stat_exp">Years of Experience</span>
             </div>
             <div class="stats-card" data-aos="zoom-in" data-aos-delay="300">
                 <span class="stats-number">20+</span>
-                <span class="stats-label">Digital Projects Done</span>
+                <span class="stats-label" data-i18n="stat_projects">Digital Projects Done</span>
             </div>
             <div class="stats-card" data-aos="zoom-in" data-aos-delay="500">
                 <span class="stats-number">2K+</span>
-                <span class="stats-label">Community Members Managed</span>
+                <span class="stats-label" data-i18n="stat_community">Community Members Managed</span>
             </div>
         </div>
 
@@ -88,39 +94,39 @@
                 <div class="timeline-dot"></div>
                 <div class="timeline-date">2020</div>
                 <div class="timeline-content">
-                    <h3>Start Roblox Community Management</h3>
-                    <p>Diving deep into the Roblox ecosystem, managing community spaces, moderating player interactions, and organizing digital events for gaming groups.</p>
+                    <h3 data-i18n="tl_1_title">Start Roblox Community Management</h3>
+                    <p data-i18n="tl_1_desc">Diving deep into the Roblox ecosystem, managing community spaces, moderating player interactions, and organizing digital events for gaming groups.</p>
                 </div>
             </div>
             <div class="timeline-item" data-aos="fade-up">
                 <div class="timeline-dot"></div>
                 <div class="timeline-date">2023</div>
                 <div class="timeline-content">
-                    <h3>3D Animation</h3>
-                    <p>Began learning 3D workflows in Blender for Roblox assets.</p>
+                    <h3 data-i18n="tl_2_title">3D Animation</h3>
+                    <p data-i18n="tl_2_desc">Began learning 3D workflows in Blender for Roblox assets.</p>
                 </div>
             </div>
             <div class="timeline-item" data-aos="fade-up">
                 <div class="timeline-dot"></div>
                 <div class="timeline-date">2024 - 2026</div>
                 <div class="timeline-content">
-                    <h3>XЯΞVERSE Clan Contributor & UGC Workflows</h3>
-                    <p>Joined XЯΞVERSE as a content contributor and video editor on TikTok. Expanded skills into Roblox UGC development.</p>
+                    <h3 data-i18n="tl_3_title">XЯΞVERSE Clan Contributor & UGC Workflows</h3>
+                    <p data-i18n="tl_3_desc">Joined XЯΞVERSE as a content contributor and video editor on TikTok. Expanded skills into Roblox UGC development.</p>
                 </div>
             </div>
             <div class="timeline-item" data-aos="fade-up">
                 <div class="timeline-dot"></div>
                 <div class="timeline-date">2026</div>
                 <div class="timeline-content">
-                    <h3>Front-End Web Development Expansion</h3>
-                    <p>Blending networking logic and digital creativity into interactive web development, building clean, premium front-end web experiences.</p>
+                    <h3 data-i18n="tl_4_title">Front-End Web Development Expansion</h3>
+                    <p data-i18n="tl_4_desc">Blending networking logic and digital creativity into interactive web development, building clean, premium front-end web experiences.</p>
                 </div>
             </div>
         </div>
     </section>
 
     <section id="skills" class="skills">
-        <h2 data-aos="fade-right">Skills</h2>
+        <h2 data-aos="fade-right" data-i18n="skills_title">Skills</h2>
         <div class="skill-grid">
             <div class="skill-card" data-aos="flip-up" data-aos-delay="100"><div class="skill-icon">🌐</div>Networking</div>
             <div class="skill-card" data-aos="flip-up" data-aos-delay="150"><div class="skill-icon">💻</div>HTML & CSS</div>
@@ -137,12 +143,12 @@
     </section>
 
     <section id="projects" class="projects">
-        <h2 data-aos="fade-right">Projects</h2>
+        <h2 data-aos="fade-right" data-i18n="projects_title">Projects</h2>
         
         <div class="filter-container" data-aos="fade-up">
-            <button class="filter-btn active" data-filter="all">All</button>
-            <button class="filter-btn" data-filter="video">Video Editing</button>
-            <button class="filter-btn" data-filter="roblox">Roblox Design</button>
+            <button class="filter-btn active" data-filter="all" data-i18n="filter_all">All</button>
+            <button class="filter-btn" data-filter="video" data-i18n="filter_video">Video Editing</button>
+            <button class="filter-btn" data-filter="roblox" data-i18n="filter_roblox">Roblox Design</button>
         </div>
 
         <div class="project-grid">
@@ -179,11 +185,11 @@
     </section>
 
     <section id="contact" class="contact">
-        <h2 data-aos="fade-right">Contact</h2>
+        <h2 data-aos="fade-right" data-i18n="contact_title">Contact</h2>
         <div class="contact-container" data-aos="fade-up">
             
             <div class="contact-box left-box">
-                <p>Use this contact for more knowing about me!</p>
+                <p data-i18n="contact_desc">Use this contact for more knowing about me!</p>
                 <div class="contact-links">
                     <a href="https://discord.com" target="_blank" class="contact-item discord">
                         <span class="icon"><i class="fa-brands fa-discord"></i></span>
@@ -211,10 +217,10 @@
 
             <div class="contact-form-box">
                 <form id="contact-form">
-                    <input type="text" id="user_name" placeholder="Your Name" required>
-                    <input type="email" id="user_email" placeholder="Your Email" required>
-                    <textarea id="message" rows="4" placeholder="Your Message" required></textarea>
-                    <button type="submit" class="btn submit-btn">Send Message</button>
+                    <input type="text" id="user_name" placeholder="Your Name" data-i18n-placeholder="form_name" required>
+                    <input type="email" id="user_email" placeholder="Your Email" data-i18n-placeholder="form_email" required>
+                    <textarea id="message" rows="4" placeholder="Your Message" data-i18n-placeholder="form_msg" required></textarea>
+                    <button type="submit" class="btn submit-btn" data-i18n="form_btn">Send Message</button>
                     <p id="form-status" style="margin-top: 10px; font-size: 14px;"></p>
                 </form>
             </div>
