@@ -842,3 +842,80 @@ footer {
         height: 42px;
     }
 }
+
+/* --- FILTER BUTTONS --- */
+.filter-container {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-bottom: 30px;
+    flex-wrap: wrap;
+}
+
+.filter-btn {
+    padding: 8px 20px;
+    background: transparent;
+    border: 2px solid #555;
+    color: #fff;
+    border-radius: 20px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+
+.filter-btn:hover, .filter-btn.active {
+    background: #fff;
+    color: #000;
+    border-color: #fff;
+}
+
+.project-item.hide {
+    display: none; /* Menyembunyikan card yang tidak sesuai filter */
+}
+
+/* --- CONTACT FORM --- */
+.contact-container {
+    display: flex;
+    gap: 30px;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.contact-box, .contact-form-box {
+    flex: 1;
+    min-width: 300px;
+    background: #111; /* Sesuaikan dengan warna card web lu */
+    padding: 30px;
+    border-radius: 15px;
+    border: 1px solid #333;
+}
+
+#contact-form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+#contact-form input, #contact-form textarea {
+    width: 100%;
+    padding: 12px;
+    background: #222;
+    border: 1px solid #444;
+    border-radius: 8px;
+    color: #fff;
+    font-family: 'Inter', sans-serif;
+}
+
+#contact-form input:focus, #contact-form textarea:focus {
+    outline: none;
+    border-color: #777;
+}
+
+.submit-btn {
+    width: 100%;
+    cursor: pointer;
+    border: none;
+    background: #fff;
+    color: #000;
+    font-weight: bold;
+}
