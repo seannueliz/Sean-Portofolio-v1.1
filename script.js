@@ -1,3 +1,28 @@
+// --- FITUR PRELOADER / LOADING SCREEN ---
+window.addEventListener("load", function () {
+    const preloader = document.getElementById("preloader");
+    const progressBar = document.querySelector(".preloader-progress");
+    const percentText = document.querySelector(".preloader-percent");
+
+    if (preloader && progressBar && percentText) {
+        let progress = 0;
+
+        const interval = setInterval(() => {
+            progress += Math.floor(Math.random() * 10) + 5; // naik acak biar natural
+            if (progress >= 100) {
+                progress = 100;
+                clearInterval(interval);
+
+                setTimeout(() => {
+                    preloader.classList.add("loaded");
+                }, 300); // jeda dikit sebelum hilang, biar gak kaget
+            }
+            progressBar.style.width = progress + "%";
+            percentText.innerText = progress + "%";
+        }, 100);
+    }
+});
+
 document.addEventListener("DOMContentLoaded", () => {
     
     // 1. Animasi Muncul Saat Scroll
