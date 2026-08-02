@@ -1,3 +1,6 @@
+/* ==========================================================================
+   1. SISTEM TEMA WARNA (DARK & LIGHT)
+   ========================================================================== */
 :root {
     --bg-color: #060608;
     --bg-card: rgba(20, 20, 25, 0.6);
@@ -24,6 +27,9 @@
     --hero-gradient: linear-gradient(to bottom, #0f172a 40%, #cc0000);
 }
 
+/* ==========================================================================
+   2. GLOBAL RESET & BASE STYLES
+   ========================================================================== */
 * {
     margin: 0;
     padding: 0;
@@ -43,6 +49,21 @@ body {
     transition: background 0.4s ease, color 0.4s ease;
 }
 
+body::before {
+    content: "";
+    position: fixed;
+    width: 600px;
+    height: 600px;
+    background: radial-gradient(circle, rgba(255, 51, 51, 0.15) 0%, rgba(0,0,0,0) 70%);
+    top: -150px;
+    right: -150px;
+    z-index: -2;
+    pointer-events: none;
+}
+
+/* ==========================================================================
+   3. STRUKTUR NAVIGASI & HAMBURGER MENU
+   ========================================================================== */
 nav {
     position: fixed;
     top: 0; 
@@ -77,6 +98,7 @@ nav.scrolled {
 .menu {
     display: flex;
     gap: 25px;
+    align-items: center;
 }
 
 .menu a {
@@ -88,6 +110,24 @@ nav.scrolled {
 
 .menu a:hover, .menu a.active {
     color: #FF3333;
+    text-shadow: 0 0 10px rgba(255, 51, 51, 0.5);
+}
+
+.theme-btn {
+    background: none;
+    border: none;
+    color: var(--text-color);
+    font-size: 18px;
+    cursor: pointer;
+    padding: 0 5px;
+    transition: transform 0.3s ease, color 0.3s;
+    display: flex;
+    align-items: center;
+}
+
+.theme-btn:hover {
+    color: #FF3333;
+    transform: scale(1.2);
 }
 
 .hamburger {
@@ -96,12 +136,354 @@ nav.scrolled {
     color: var(--text-color);
     cursor: pointer;
     z-index: 1000;
+    transition: color 0.3s ease;
 }
 
-@media (max-width: 768px) {
-    .hamburger {
-        display: block;
+.hamburger:hover {
+    color: #FF3333;
+}
+
+/* ==========================================================================
+   4. HERO & BASE LAYOUT SECTION
+   ========================================================================== */
+.hero {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 20px;
+    padding-top: 80px;
+}
+
+.tag {
+    border: 1px solid rgba(255, 51, 51, 0.3);
+    padding: 8px 18px;
+    border-radius: 50px;
+    color: #FF3333;
+    font-size: 14px;
+    font-weight: 600;
+    letter-spacing: 1px;
+    margin-bottom: 25px;
+    background: rgba(255, 51, 51, 0.05);
+}
+
+.tag::after {
+    content: "|";
+    margin-left: 5px;
+    animation: blink 0.7s infinite;
+}
+
+@keyframes blink {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0; }
+}
+
+.hero h1 {
+    font-size: 5rem;
+    font-weight: 800;
+    line-height: 1.1;
+    letter-spacing: -2px;
+    background: var(--hero-gradient);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.hero p, .about p {
+    color: var(--text-muted);
+}
+
+.btn {
+    margin-top: 35px;
+    padding: 14px 32px;
+    background: #FF3333;
+    color: white;
+    text-decoration: none;
+    border-radius: 12px;
+    font-weight: 600;
+    transition: .3s;
+}
+
+.btn:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 0 25px rgba(255, 51, 51, 0.6);
+}
+
+.about, .skills, .projects, .contact, .journey {
+    padding: 100px 10%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+h2 {
+    color: #FF3333;
+    font-size: 40px;
+    font-weight: 700;
+    margin-bottom: 30px;
+    letter-spacing: -1px;
+}
+
+.about p {
+    max-width: 800px;
+    color: #b1b1b8;
+    line-height: 1.8;
+    font-size: 18px;
+}
+
+/* ==========================================================================
+   5. KOMPONEN SKILLS & TOOLTIP
+   ========================================================================== */
+.skill-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 20px;
+}
+
+.skill-card {
+    background: var(--bg-card);
+    color: var(--text-color);
+    border: 1px solid var(--border-color);
+    padding: 25px;
+    border-radius: 16px;
+    font-size: 18px;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    position: relative;
+    transition: 0.3s;
+}
+
+.skill-icon { font-size: 24px; }
+
+.skill-card:hover {
+    transform: translateY(-5px);
+    background: rgba(255, 51, 51, 0.05);
+    border-color: rgba(255, 51, 51, 0.5);
+}
+
+.skill-card::before {
+    content: attr(data-tooltip);
+    position: absolute;
+    bottom: 115%;
+    left: 50%;
+    transform: translateX(-50%) translateY(10px);
+    background: rgba(10, 10, 14, 0.95);
+    color: #ffffff;
+    font-size: 0.75rem;
+    padding: 12px 16px;
+    border-radius: 10px;
+    width: 290px;
+    border: 1px solid rgba(255, 51, 51, 0.2);
+    z-index: 999;
+    opacity: 0;
+    visibility: hidden;
+    transition: 0.3s ease;
+    pointer-events: none;
+}
+
+@media (min-width: 769px) {
+    .skill-card:hover::before {
+        opacity: 1;
+        visibility: visible;
+        transform: translateX(-50%) translateY(0);
     }
+}
+
+.skill-card.active-tooltip::before {
+    opacity: 1;
+    visibility: visible;
+    transform: translateX(-50%) translateY(0);
+}
+
+/* ==========================================================================
+   6. KOMPONEN PROJECTS & FILTER
+   ========================================================================== */
+.filter-container {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-bottom: 30px;
+    flex-wrap: wrap;
+}
+
+.filter-btn {
+    padding: 8px 20px;
+    background: transparent;
+    border: 2px solid #555;
+    color: #fff;
+    border-radius: 20px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: 0.3s;
+}
+
+.filter-btn:hover, .filter-btn.active {
+    background: #fff;
+    color: #000;
+    border-color: #fff;
+}
+
+.project-item.hide { display: none; }
+
+.project-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 25px;
+}
+
+.project-card {
+    padding: 0 0 30px 0 !important;
+    display: flex;
+    flex-direction: column;
+    background: var(--bg-card);
+    border: 1px solid var(--border-color);
+    border-radius: 20px;
+    overflow: hidden;
+    transition: 0.3s;
+}
+
+.project-card:hover { background: var(--bg-card-hover); }
+
+.project-card h3 {
+    margin: 20px 25px 10px 25px !important;
+    color: var(--text-heading);
+}
+
+.project-card p {
+    margin: 0 25px !important;
+    font-size: 0.9rem;
+    color: var(--text-muted);
+}
+
+.image-container {
+    width: 100% !important;
+    height: 170px !important;
+    overflow: hidden !important;
+    background: rgba(0, 0, 0, 0.2) !important;
+}
+
+.image-container img {
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: contain !important;
+    transition: 0.5s !important;
+}
+
+.project-card-link {
+    text-decoration: none !important;
+    color: inherit !important;
+    display: block;
+}
+
+.project-card-link:hover .image-container img {
+    transform: scale(1.06) !important;
+}
+
+/* ==========================================================================
+   7. STATS, TIMELINE & CONTACT FORM
+   ========================================================================== */
+.stats-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 25px;
+    margin-bottom: 60px;
+}
+
+.stats-card {
+    background: var(--bg-card);
+    border: 1px solid var(--border-color);
+    padding: 30px 20px;
+    border-radius: 20px;
+    text-align: center;
+}
+
+.stats-number {
+    display: block;
+    font-size: 2.8rem;
+    font-weight: 800;
+    color: #FF3333;
+    margin-bottom: 5px;
+}
+
+.stats-label { font-size: 0.9rem; color: var(--text-muted); }
+
+.timeline {
+    position: relative;
+    border-left: 2px solid rgba(255, 51, 51, 0.2);
+    padding-left: 30px;
+    margin-left: 10px;
+}
+
+.timeline-item { position: relative; margin-bottom: 45px; }
+
+.timeline-dot {
+    position: absolute;
+    left: -41px;
+    top: 6px;
+    width: 16px;
+    height: 16px;
+    background: #060608;
+    border: 3px solid #FF3333;
+    border-radius: 50%;
+}
+
+.timeline-date { font-size: 0.95rem; font-weight: 700; color: #FF3333; margin-bottom: 8px; }
+
+.timeline-content {
+    background: var(--bg-card);
+    border: 1px solid var(--border-color);
+    padding: 25px;
+    border-radius: 16px;
+}
+
+.contact-container {
+    display: flex;
+    gap: 30px;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.contact-box, .contact-form-box {
+    flex: 1;
+    min-width: 300px;
+    background: var(--bg-card);
+    padding: 30px;
+    border-radius: 15px;
+    border: 1px solid var(--border-color);
+}
+
+#contact-form { display: flex; flex-direction: column; gap: 15px; }
+
+#contact-form input, #contact-form textarea {
+    width: 100%;
+    padding: 12px;
+    background: #222;
+    border: 1px solid #444;
+    border-radius: 8px;
+    color: #fff;
+}
+
+.submit-btn {
+    width: 100%;
+    cursor: pointer;
+    border: none;
+    background: #FF3333;
+    color: #fff;
+    font-weight: bold;
+    padding: 12px;
+    border-radius: 8px;
+}
+
+footer { padding: 40px 20px; text-align: center; color: #52525b; font-size: 14px; }
+
+/* ==========================================================================
+   8. MOBILE RESPONSIVE & HAMBURGER MENU
+   ========================================================================== */
+@media (max-width: 768px) {
+    .hamburger { display: block; }
     .menu {
         position: fixed;
         top: 0;
@@ -118,7 +500,6 @@ nav.scrolled {
         transition: right 0.4s ease;
         z-index: 998;
     }
-    .menu.active {
-        right: 0;
-    }
+    .menu.active { right: 0; }
+    .hero h1 { font-size: 3rem; }
 }
