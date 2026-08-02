@@ -33,6 +33,61 @@ window.addEventListener("load", function () {
 
 document.addEventListener("DOMContentLoaded", () => {
 
+    // --- FITUR GANTI BAHASA (ID / EN) ---
+    const langToggleBtn = document.getElementById("lang-toggle");
+    
+    // Kamus Terjemahan
+    const translations = {
+        en: {
+            nav_home: "Home",
+            nav_about: "About",
+            nav_journey: "Journey",
+            nav_skills: "Skills",
+            nav_projects: "Projects",
+            nav_contact: "Contact",
+            hero_subtitle: "Computer Networking Student | Web Developer | Content Creator.",
+            hero_btn: "Explore",
+            about_title: "About Me",
+            // Tambahkan terjemahan teks lain di sini jika perlu
+        },
+        id: {
+            nav_home: "Beranda",
+            nav_about: "Tentang",
+            nav_journey: "Perjalanan",
+            nav_skills: "Keahlian",
+            nav_projects: "Proyek",
+            nav_contact: "Kontak",
+            hero_subtitle: "Siswa Teknik Komputer & Jaringan | Pengembang Web | Konten Kreator.",
+            hero_btn: "Jelajahi",
+            about_title: "Tentang Saya",
+        }
+    };
+
+    function setLanguage(lang) {
+        document.querySelectorAll("[data-i18n]").forEach(element => {
+            const key = element.getAttribute("data-i18n");
+            if (translations[lang] && translations[lang][key]) {
+                element.innerText = translations[lang][key];
+            }
+        });
+        if (langToggleBtn) {
+            langToggleBtn.innerText = lang === "id" ? "EN" : "ID";
+        }
+        localStorage.setItem("preferred_lang", lang);
+    }
+
+    // Cek memori bahasa saat web dibuka
+    const savedLang = localStorage.getItem("preferred_lang") || "en";
+    setLanguage(savedLang);
+
+    if (langToggleBtn) {
+        langToggleBtn.addEventListener("click", () => {
+            const currentLang = localStorage.getItem("preferred_lang") || "en";
+            const newLang = currentLang === "en" ? "id" : "en";
+            setLanguage(newLang);
+        });
+    }
+
     // Tombol Explore Smooth Scroll
     const exploreBtn = document.querySelector('.hero .btn');
     if (exploreBtn) {
