@@ -911,3 +911,55 @@ footer {
     color: #000;
     font-weight: bold;
 }
+
+/* --- HAMBURGER MENU STYLING --- */
+.hamburger {
+    display: none;
+    font-size: 24px;
+    color: var(--text-color);
+    cursor: pointer;
+    z-index: 1000;
+    transition: color 0.3s ease;
+}
+
+.hamburger:hover {
+    color: #FF3333;
+}
+
+/* Responsif untuk Layar Tablet & HP */
+@media (max-width: 768px) {
+    .hamburger {
+        display: block; /* Munculkan ikon garis tiga di HP */
+    }
+
+    .menu {
+        position: fixed;
+        top: 0;
+        right: -100%; /* Sembunyikan menu di luar layar sebelah kanan */
+        width: 75%;
+        max-width: 300px;
+        height: 100vh;
+        background: var(--bg-card);
+        backdrop-filter: blur(15px);
+        -webkit-backdrop-filter: blur(15px);
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 30px;
+        box-shadow: -10px 0 30px rgba(0, 0, 0, 0.5);
+        border-left: 1px solid var(--border-color);
+        transition: right 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        z-index: 998;
+    }
+
+    /* Kelas aktif saat hamburger diklik */
+    .menu.active {
+        right: 0;
+    }
+
+    /* Modifikasi tombol tema di dalam menu mobile */
+    .menu .theme-btn {
+        margin-top: 10px;
+        font-size: 22px;
+    }
+}
