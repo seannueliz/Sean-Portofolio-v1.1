@@ -319,7 +319,7 @@ document.getElementById('contact-form').addEventListener('submit', function(even
     };
 
     // GANTI 'YOUR_SERVICE_ID' DAN 'YOUR_TEMPLATE_ID' DENGAN MILIK LU NANTI
-    emailjs.send('service_rzigaci', 'template_q98gvsj', templateParams)
+    emailjs.send('service_s7jfm3l', 'template_q98gvsj', templateParams)
         .then(function(response) {
             statusText.innerText = "✅ Message sent successfully!";
             statusText.style.color = "#4CAF50"; // Warna hijau
