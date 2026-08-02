@@ -10,17 +10,15 @@ window.addEventListener("load", function () {
         let progress = 0;
 
         const interval = setInterval(() => {
-            progress += Math.floor(Math.random() * 10) + 5; // naik acak biar natural
+            progress += Math.floor(Math.random() * 10) + 5;
             if (progress >= 100) {
                 progress = 100;
                 clearInterval(interval);
 
-                // Begitu 100%, sembunyikan bar & persen, lalu tampilkan teks WELCOME
                 if (preloaderBarContainer) preloaderBarContainer.style.display = "none";
                 if (percentText) percentText.style.display = "none";
                 if (welcomeText) welcomeText.style.display = "block";
 
-                // Jeda 600ms (0.6 detik) menampilkan teks WELCOME sebelum preloader tertutup
                 setTimeout(() => {
                     preloader.classList.add("loaded");
                 }, 600); 
@@ -31,12 +29,12 @@ window.addEventListener("load", function () {
     }
 });
 
+// --- UTAMA: DOM CONTENT LOADED ---
 document.addEventListener("DOMContentLoaded", () => {
 
-    // --- FITUR GANTI BAHASA (ID / EN) ---
+    // 1. FITUR GANTI BAHASA (ID / EN)
     const langToggleBtn = document.getElementById("lang-toggle");
     
-    // Kamus Terjemahan Lengkap
     const translations = {
         en: {
             nav_home: "Home",
@@ -139,7 +137,6 @@ document.addEventListener("DOMContentLoaded", () => {
         localStorage.setItem("preferred_lang", lang);
     }
 
-    // Cek memori bahasa saat web dibuka
     const savedLang = localStorage.getItem("preferred_lang") || "en";
     setLanguage(savedLang);
 
@@ -151,23 +148,20 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     }
 
-    // Tombol Explore Smooth Scroll
+    // 2. Tombol Explore Smooth Scroll
     const exploreBtn = document.querySelector('.hero .btn');
     if (exploreBtn) {
         exploreBtn.addEventListener('click', function(e) {
             e.preventDefault();
             const targetSection = document.querySelector('#about');
             if (targetSection) {
-                targetSection.scrollIntoView({
-                    behavior: 'smooth'
-                });
+                targetSection.scrollIntoView({ behavior: 'smooth' });
             }
         });
     }
     
-    // --- FITUR BACK TO TOP BUTTON ---
+    // 3. Back to Top Button
     const backToTopBtn = document.getElementById("back-to-top");
-
     if (backToTopBtn) {
         window.addEventListener("scroll", () => {
             if (window.scrollY > 400) {
@@ -178,28 +172,11 @@ document.addEventListener("DOMContentLoaded", () => {
         });
 
         backToTopBtn.addEventListener("click", () => {
-            window.scrollTo({
-                top: 0,
-                behavior: "smooth"
-            });
+            window.scrollTo({ top: 0, behavior: "smooth" });
         });
     }
-    
-    // 1. Animasi Muncul Saat Scroll
-    const observer = new IntersectionObserver((entries) => {
-        entries.forEach((entry) => {
-            if (entry.isIntersecting) {
-                entry.target.classList.add("show");
-            }
-        });
-    }, {
-        threshold: 0.05
-    });
 
-    const hiddenElements = document.querySelectorAll(".hidden");
-    hiddenElements.forEach((el) => observer.observe(el));
-
-    // 2. Navigasi Pintar
+    // 4. Navigasi Pintar & Aktif Link
     const navbar = document.querySelector("nav");
     const sections = document.querySelectorAll("section, hero");
     const navLinks = document.querySelectorAll("nav .menu a");
@@ -227,7 +204,7 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     });
 
-    // 3. Efek Kursor Glow Mengikuti Mouse
+    // 5. Efek Kursor Glow
     const glow = document.querySelector(".cursor-glow");
     if (glow) {
         document.addEventListener("mousemove", (e) => {
@@ -236,12 +213,12 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     }
 
-    // 4. Logika Mode Gelap / Terang (Theme Toggle)
+    // 6. Logika Mode Gelap / Terang
     const themeToggleBtn = document.getElementById("theme-toggle");
     if (themeToggleBtn) {
         const themeIcon = themeToggleBtn.querySelector("i");
-
         const currentTheme = localStorage.getItem("theme");
+
         if (currentTheme) {
             document.documentElement.setAttribute("data-theme", currentTheme);
             if (currentTheme === "light") {
@@ -251,7 +228,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
         themeToggleBtn.addEventListener("click", () => {
             let theme = document.documentElement.getAttribute("data-theme");
-            
             if (theme === "light") {
                 document.documentElement.setAttribute("data-theme", "dark");
                 localStorage.setItem("theme", "dark");
@@ -264,12 +240,11 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     }
 
-    // 5. Fitur Click to Copy untuk Discord
+    // 7. Click to Copy Discord
     const discordBtn = document.querySelector(".contact-item.discord");
     if (discordBtn) {
         discordBtn.addEventListener("click", (e) => {
             e.preventDefault();
-            
             const usernameText = discordBtn.querySelector(".username");
             const originalText = usernameText.innerText;
             
@@ -285,7 +260,7 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     }
 
-    // 6. ANIMASI MENGETIK (TYPING EFFECT)
+    // 8. Animasi Mengetik (Typing Effect)
     const textElement = document.getElementById("typing-text");
     const words = ["Tech Enthusiast", "Contributor", "Web Developer", "Digital Creator", "UGC Creator"];
     let wordIndex = 0;
@@ -293,6 +268,7 @@ document.addEventListener("DOMContentLoaded", () => {
     let isDeleting = false;
 
     function typeEffect() {
+        if (!textElement) return;
         const currentWord = words[wordIndex];
         
         if (isDeleting) {
@@ -308,8 +284,7 @@ document.addEventListener("DOMContentLoaded", () => {
         if (!isDeleting && charIndex === currentWord.length) {
             typeSpeed = 1500; 
             isDeleting = true;
-        } 
-        else if (isDeleting && charIndex === 0) {
+        } else if (isDeleting && charIndex === 0) {
             isDeleting = false;
             wordIndex = (wordIndex + 1) % words.length; 
             typeSpeed = 500; 
@@ -323,7 +298,7 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 });
 
-// --- FITUR BACKGROUND MUSIC (BGM) AUTOPLAY MUTED STRATEGY ---
+// --- FITUR BACKGROUND MUSIC (BGM) ---
 document.addEventListener("DOMContentLoaded", function () {
     const music = document.getElementById("bg-music");
     const musicBtn = document.getElementById("music-toggle");
@@ -376,7 +351,7 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 });
 
-// --- SCRIPT INTERAKSI TOOLTIP SKILL KHUSUS HP/MOBILE ---
+// --- SCRIPT INTERAKSI TOOLTIP SKILL HP/MOBILE ---
 document.addEventListener("DOMContentLoaded", function () {
     const skillCards = document.querySelectorAll(".skill-card");
 
@@ -384,7 +359,6 @@ document.addEventListener("DOMContentLoaded", function () {
         card.addEventListener("click", function (e) {
             if (window.innerWidth <= 768) {
                 e.stopPropagation(); 
-
                 if (this.classList.contains("active-tooltip")) {
                     this.classList.remove("active-tooltip");
                 } else {
@@ -422,32 +396,35 @@ filterButtons.forEach(button => {
 });
 
 // --- FITUR EMAILJS (CONTACT FORM) ---
-document.getElementById('contact-form').addEventListener('submit', function(event) {
-    event.preventDefault(); 
+const contactForm = document.getElementById('contact-form');
+if (contactForm) {
+    contactForm.addEventListener('submit', function(event) {
+        event.preventDefault(); 
 
-    const statusText = document.getElementById('form-status');
-    const submitBtn = document.querySelector('.submit-btn');
-    
-    submitBtn.innerText = "Sending...";
-    submitBtn.disabled = true;
+        const statusText = document.getElementById('form-status');
+        const submitBtn = document.querySelector('.submit-btn');
+        
+        submitBtn.innerText = "Sending...";
+        submitBtn.disabled = true;
 
-    const templateParams = {
-        name: document.getElementById('user_name').value,
-        email: document.getElementById('user_email').value,
-        message: document.getElementById('message').value
-    };
+        const templateParams = {
+            name: document.getElementById('user_name').value,
+            email: document.getElementById('user_email').value,
+            message: document.getElementById('message').value
+        };
 
-    emailjs.send('service_s7jfm3l', 'template_q98gvsj', templateParams)
-        .then(function(response) {
-            statusText.innerText = "✅ Message sent successfully!";
-            statusText.style.color = "#4CAF50"; 
-            document.getElementById('contact-form').reset(); 
-            submitBtn.innerText = "Send Message";
-            submitBtn.disabled = false;
-        }, function(error) {
-            statusText.innerText = "❌ Failed to send message. Try again later.";
-            statusText.style.color = "#f44336"; 
-            submitBtn.innerText = "Send Message";
-            submitBtn.disabled = false;
-        });
-});
+        emailjs.send('service_s7jfm3l', 'template_q98gvsj', templateParams)
+            .then(function(response) {
+                statusText.innerText = "✅ Message sent successfully!";
+                statusText.style.color = "#4CAF50"; 
+                contactForm.reset(); 
+                submitBtn.innerText = "Send Message";
+                submitBtn.disabled = false;
+            }, function(error) {
+                statusText.innerText = "❌ Failed to send message. Try again later.";
+                statusText.style.color = "#f44336"; 
+                submitBtn.innerText = "Send Message";
+                submitBtn.disabled = false;
+            });
+    });
+}
