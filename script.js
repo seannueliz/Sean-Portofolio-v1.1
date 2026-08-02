@@ -319,7 +319,7 @@ document.getElementById('contact-form').addEventListener('submit', function(even
     };
 
     // Menggunakan Service ID lu dan Template ID dari screenshot (8vz4juc)
-    emailjs.send('service_s7jfm3l', '8vz4juc', templateParams)
+    emailjs.send('service_s7jfm3l', 'template_q98gvsj', templateParams)
         .then(function(response) {
             statusText.innerText = "✅ Message sent successfully!";
             statusText.style.color = "#4CAF50"; // Warna hijau
