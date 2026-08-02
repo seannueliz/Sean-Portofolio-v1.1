@@ -32,6 +32,26 @@ window.addEventListener("load", function () {
 // --- UTAMA: DOM CONTENT LOADED ---
 document.addEventListener("DOMContentLoaded", () => {
 
+    // --- FITUR LIVE LOCAL TIME WIDGET ---
+    function updateLocalTime() {
+        const timeElement = document.getElementById("time-text");
+        if (timeElement) {
+            // Mengambil waktu lokal WIB (Waktu Indonesia Barat / Asia/Jakarta)
+            const options = {
+                timeZone: "Asia/Jakarta",
+                hour: '2-digit',
+                minute: '2-digit',
+                second: '2-digit',
+                hour12: false
+            };
+            const now = new Date();
+            const timeString = new Intl.DateTimeFormat('en-GB', options).format(now);
+            timeElement.innerText = `Tangerang, ID — ${timeString} WIB`;
+        }
+    }
+    setInterval(updateLocalTime, 1000);
+    updateLocalTime();
+    
     // 1. FITUR GANTI BAHASA (ID / EN)
     const langToggleBtn = document.getElementById("lang-toggle");
     
