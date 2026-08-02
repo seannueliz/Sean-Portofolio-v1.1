@@ -333,3 +333,38 @@ document.getElementById('contact-form').addEventListener('submit', function(even
             submitBtn.disabled = false;
         });
 });
+
+// --- FITUR HAMBURGER MENU (MOBILE NAVIGATION) ---
+const hamburger = document.querySelector('.hamburger');
+const menu = document.querySelector('.menu');
+const menuLinks = document.querySelectorAll('.menu a');
+const hamburgerIcon = hamburger ? hamburger.querySelector('i') : null;
+
+if (hamburger && menu) {
+    hamburger.addEventListener('click', () => {
+        menu.classList.toggle('active');
+        
+        // Ganti ikon garis tiga jadi tanda silang (X) pas dibuka, dan sebaliknya
+        if (menu.classList.contains('active')) {
+            hamburgerIcon.className = "fa-solid fa-xmark";
+        } else {
+            hamburgerIcon.className = "fa-solid fa-bars";
+        }
+    });
+
+    // Otomatis tutup menu pas salah satu link diklik (supaya ga nutupin layar)
+    menuLinks.forEach(link => {
+        link.addEventListener('click', () => {
+            menu.classList.remove('active');
+            if (hamburgerIcon) hamburgerIcon.className = "fa-solid fa-bars";
+        });
+    });
+
+    // Tutup menu kalau user klik di luar area menu
+    document.addEventListener('click', (e) => {
+        if (!menu.contains(e.target) && !hamburger.contains(e.target)) {
+            menu.classList.remove('active');
+            if (hamburgerIcon) hamburgerIcon.className = "fa-solid fa-bars";
+        }
+    });
+}
