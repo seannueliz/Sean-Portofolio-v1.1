@@ -328,7 +328,7 @@ document.addEventListener("DOMContentLoaded", function () {
         music.volume = targetVolume;
 
         music.addEventListener("loadedmetadata", () => {
-            music.currentTime = 70;
+            music.currentTime = 11;
         });
 
         let hasStartedByInteraction = false;
